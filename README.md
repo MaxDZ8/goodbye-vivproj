@@ -37,4 +37,4 @@ The goal of this section is to be a go-to for details. There's little to no effo
 
 # Officially making a device
 
-In this part I create and AXI device by means of typical project mode. The goal is to investigate the results to later reproduce them using TCL only.
+In this part I create and AXI device by means of [typical project mode](./typical/README.md). The goal is to investigate the results to later reproduce them using TCL only. The bottom line is: I need to find out a TCL script which output is the same as the project flow. Is it really necessary? Probably not, but for the time being I will just try to follow a reference.

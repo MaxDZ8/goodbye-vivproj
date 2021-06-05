@@ -231,7 +231,7 @@ For help on an individual topic, type 'help <topic>'. For example:
 % help create_project
 ```
 
-Vivado Design Suite Tcl Command Reference Guide (UG835) further notes other commands: in the *CreatePeripheral* and *IpFlow* category.
+Vivado Design Suite Tcl Command Reference Guide (UG835) further notes other commands: in the *CreatePeripheral* and *IpFlow* category but to build the project (as in the sense of TCL script-based-project) additional commands are needed.
 Some of the useful commands include:
 
 | Command                                       | Description                                                       |
