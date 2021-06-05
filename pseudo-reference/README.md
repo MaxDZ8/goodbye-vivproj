@@ -237,3 +237,8 @@ Some of the useful commands include:
 | Command                                       | Description                                                       |
 |-----------------------------------------------|-------------------------------------------------------------------|
 | TODO                                          | TODO                                                              |
+
+Commands are a thing, but their parameters and properties are another.
+
+1. Available [taxonomies](./taxonomies.md) (aka "categories", in their dialog).
+2. [Properties](./axi-component-properties.md) of an AXI component
