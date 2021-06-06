@@ -19,3 +19,29 @@ Some panels are way more complicated than others and require their own pages.
 
 You might be interested in knowing [properties of an AXI component](../pseudo-reference/axi-component-properties.md)   
 
+# Compatibility panel (Family)
+
+![IpPackager, second panel](02_ip_pckgr_compatibility_annotated.png)
+
+This panel is quite easy to understand as every button basically emits the corresponding command right away. Each supported hardware is a pair of tokens (FAMILY LIFECYCLE).
+
+1. This is kinda magic. It opens a menu allowing you to add a specific device or a regexp. They end up in emitting stuff like `set_property supported_families {zynq Pre-Production zynq{xc7z007sclg225-1} Production} [ipx::current_core]`. Note the token format, further elaborated below.
+2. This button is enabled if you click on something on the table. It is vastly more straightforward than the adding.
+3. Can move multiple entries
+4. Can move multiple entries
+
+## Supported families
+If supporting all chips of a given family there's no need to specify the exact model. So, what families are available? This is a list produced by selecting everything in the "Add Family" dialog.
+
+` set_property supported_families {artix7 Production artix7l Production qartix7 Production qzynq Production aartix7 Production azynq Production zynq Production} [ipx::current_core] `
+
+## Supported life cycle tokens
+
+There seems to be a bug in the add dialog preventing me to mix-and match. This is provided more for completeness than anything real.
+You can change the lifecycle by adding the chip and then clicking on the corresponding cell in the "Life Cycle" column, no need to get crazy with the dialog.
+
+I assume there are enumerations. Even supposing they are arbitrary strings, I would be careful not messing up with toolchain expectations.
+
+Only one making sense: `Production` (see examples above).
+
+Other available tokens: `Beta`, `Pre-Production`, `Discontinued`, `Superseded`, `Hidden`, `Removed`.
