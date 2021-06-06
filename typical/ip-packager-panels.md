@@ -49,3 +49,19 @@ Other available tokens: `Beta`, `Pre-Production`, `Discontinued`, `Superseded`, 
 # Compatibility panel (Simulator)
 
 TODO - this one doesn't really interest me.
+
+# File Groups panel
+
+TODO
+
+# Customization Parameters panel
+
+TODO
+
+# Ports and interfaces panel
+
+At its core, we use AXI IP to have the interfacing done for us. The whole point of the thing is therefore to build the AXI bus. There are dedicated commands such as `ipx::add_bus_interface` but ports can also exist by themselves. We'll be trying to build this:
+
+![IP Packager, Ports and interfaces tab after merge](./05_ip_pckgr_ports_and_interfaces.png)
+
+This panel is so complicated it deserves [its own page](./ports-and-interfaces.md).
