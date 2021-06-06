@@ -244,3 +244,4 @@ Commands are a thing, but their parameters and properties are another.
 2. [Properties](./axi-component-properties.md) of an AXI component.
 3. [Bus interfaces](./bus-interfaces.md) of a component created by the regular project-based flow.
 4. [Ports](./io-ports.md) of a component created by the regular project-based flow **and** supporting some custom ports for the lulz (I usually just drive feedback LEDs or throw them away).
+5. [Port maps](./port-maps.md), putting ports into bus interfaces.
