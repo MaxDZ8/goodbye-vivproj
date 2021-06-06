@@ -45,3 +45,7 @@ I assume there are enumerations. Even supposing they are arbitrary strings, I wo
 Only one making sense: `Production` (see examples above).
 
 Other available tokens: `Beta`, `Pre-Production`, `Discontinued`, `Superseded`, `Hidden`, `Removed`.
+
+# Compatibility panel (Simulator)
+
+TODO - this one doesn't really interest me.
