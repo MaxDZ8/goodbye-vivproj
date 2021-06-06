@@ -1,51 +1,62 @@
 
 # Properties of a component
 Produced by `list_property  [ ipx::current_core ]`, Vivado 2020.2
+| Property                           | Observed value    | Notes              |
+|------------------------------------|-------------------|--------------------|
+| ADD_DONT_TOUCH                     | 0                 |                    |
+| ADVERTISEMENT_IP                   | 0                 |                    |
+| ADVERTISEMENT_URL                  |                   |                    |
+| AUTO_DEVICE_PROPERTIES_FILTER      |                   |                    |
+| AUTO_FAMILY_SUPPORT_LEVEL          |                   |                    |
+| BLOCK_IP                           | 0                 |                    |
+| CHECKSUMS                          | busInterfaces 6ce1cd9f memoryMaps ed1368d5 fileGroups f6a0831c ports 3b8f8f6c hdlParameters b1d50ec2 parameters 27085b1b          |                 |
+| CLASS                              | component         |                    |
+| COMPANY_URL                        | http://www.companyurl.eu |                 |
+| CORE_REVISION                      | 1                 |                 |
+| CREATION_DATE_TIME                 | 2021-05-31T09:59:31Z          |                 |
+| DEBUG_CORE_INFO                    | 0                 |                 |
+| DEFAULT_USER_PARAMETER_ADDED       | 1                 |                 |
+| DEFINITION_SOURCE                  | unknown           |                 |
+| DESCRIPTION                        | Help me understand the TCL commands mofo          |                 |
+| DESIGN_TOOL_CONTEXTS               | All               |                 |
+| DEVICE_INDEPENDENT_SYNTH           | 0                 |                 |
+| DIRTY                              | 0                 |                 |
+| DISPLAY_NAME                       | add_some_bitz_v0.1          |                 |
+| EXAMPLE_DESIGN_NO_IP_IMPORT        | 0                 |                 |
+| EXPECTED_FILEGROUPS                | WARNING: [IP_Flow 19-845] The 'expected_filegroups' property has been replaced by the 'ipx::report_possible_file_groups' command.<br>xilinx_unknown xilinx_project_archive xilinx_elaborateports xilinx_elaborateprecontents xilinx_elaboratesubcores xilinx_elaboratebd xilinx_elaboratepostcontents xilinx_anylanguagehls xilinx_vhdlhlssynthesis xilinx_veriloghlssynthesis xilinx_anylanguagehlssynthesis xilinx_vhdlhlssimulation xilinx_veriloghlssimulation xilinx_anylanguagehlssimulation xilinx_vhdlinstantiationtemplate xilinx_veriloginstantiationtemplate xilinx_anylanguageinstantiationtemplate xilinx_vhdlsynthesis xilinx_verilogsynthesis xilinx_anylanguagesynthesis xilinx_vhdlsourcedelivery xilinx_verilogsourcedelivery xilinx_anylanguagesourcedelivery xilinx_structuralnetlist xilinx_synthesisconstraints xilinx_synthesismemoryarchive xilinx_synthesischeckpoint xilinx_vhdlsynthesiswrapper xilinx_verilogsynthesiswrapper xilinx_anylanguagesynthesiswrapper xilinx_implementation xilinx_vhdlbehavioralsimulation xilinx_verilogbehavioralsimulation xilinx_hybridsimulation xilinx_systemcsimulation xilinx_anylanguagebehavioralsimulation xilinx_simulationmemoryarchive xilinx_simulationcheckpoint xilinx_vhdlsimulationwrapper xilinx_verilogsimulationwrapper xilinx_hybridsimulationwrapper xilinx_systemcsimulationwrapper xilinx_anylanguagesimulationwrapper xilinx_vhdltestbench xilinx_verilogtestbench xilinx_testbench xilinx_cmodelsimulation xilinx_matlabmodels xilinx_systemgeneratormodels xilinx_miscfiles xilinx_exporttosdk xilinx_catalogicon xilinx_catalogdisabledicon xilinx_coreguiicon xilinx_miffiles xilinx_datasheet xilinx_encrypteddatasheet xilinx_gettingstartedguide xilinx_productguide xilinx_versioninformation xilinx_readme xilinx_documentation xilinx_vhdlexamples xilinx_verilogexamples xilinx_examples xilinx_examplessynthesis xilinx_examplessimulation xilinx_examplesimplementation xilinx_examplesscriptext xilinx_examplesscript xilinx_referencedesign xilinx_upgradescripts xilinx_softwaredriver xilinx_externalfiles xilinx_sharedlogic xilinx_hardwarehandoff xilinx_powerdata xilinx_iodata xilinx_xpgui xilinx_xpguicustom xilinx_xpgdrc xilinx_blockdiagram xilinx_utilityxitfiles xilinx_cgvhdlsynthesis xilinx_cgverilogsynthesis xilinx_cganylanguagesynthesis xilinx_cgvhdlsourcedelivery xilinx_cgverilogsourcedelivery xilinx_cganylanguagesourcedelivery xilinx_cgstructuralnetlist xilinx_cgimplementation xilinx_cgvhdlbehavioralsimulation xilinx_cgverilogbehavioralsimulation xilinx_cganylanguagebehavioralsimulation xilinx_cgvhdltestbench xilinx_cgverilogtestbench xilinx_cgtestbench xilinx_cgvhdlinstantiationtemplate xilinx_cgveriloginstantiationtemplate xilinx_cgvhdlsynthesiswrapper xilinx_cgverilogsynthesiswrapper xilinx_cgvhdlsimulationwrapper xilinx_cgverilogsimulationwrapper xilinx_cgcmodelsimulation xilinx_cgmatlabmodels xilinx_cgsystemgeneratormodels xilinx_cgmiscfiles xilinx_cgcatalogicon xilinx_cgcatalogdisabledicon xilinx_cgcoreguiicon xilinx_cgmiffiles xilinx_cgdatasheet xilinx_cgencrypteddatasheet xilinx_cggettingstartedguide xilinx_cgversioninformation xilinx_cgreadme xilinx_cgdocumentation xilinx_cgexamples xilinx_cgexamplessynthesis xilinx_cgexamplessimulation xilinx_cgexamplesimplementation xilinx_cgreferencedesign xilinx_guilayout xilinx_uimodel xilinx_allejava xilinx_associatedfiles xilinx_coregenlegacy xilinx_utility xilinx_generatorfiles xilinx_licensedsources xilinx_synthesisconstraints xilinx_implementationconstraints xilinx_instantiationtemplates xilinx_viewlogicsymbols xilinx_schematicsymbols xilinx_foundationsymbols xilinx_coresymbol xilinx_vhdlmiscfiles xilinx_verilogmiscfiles xilinx_vhdlrtlsimulation xilinx_verilogrtlsimulation xilinx_any_languagertlsimulation xilinx_cgallviews | You must be kidding. |
+| HIDE_IN_GUI                        | 0                 |                 |
+| INTEGRITY_REPORT_FILE_NAME         | packager_integrity_report.html          |                 |
+| LIBRARY                            | prototyping       |                 |
+| NAME                               | add_some_bitz     |                 |
+| PAYMENT_REQUIRED                   | 0                 |                 |
+| PREVIOUS_VERSION_FOR_UPGRADE       | xil<span>inx.com</span>:user:add_some_bitz:1.0 mdz:prototyping:add_some_bitz:0.2 mdz:prototyping:add_some_bitz:0.3 mdz:prototyping:add_some_bitz:0.4 mdz:prototyping:add_some_bitz:0.5          |                 |
+| REQUIRES_VIP                       | 0                 |                 |
+| RETAIN_COMPONENT_INTEGER_PORT_TYPE | 0                 |                 |
+| ROOT_DIRECTORY                     | *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0          |                 |
+| SDX_KERNEL                         | 0                 |                 |
+| SDX_KERNEL_TYPE                    |                   |                    |
+| SECURITY_CHECKED                   | 0                 |                 |
+| SUMMARY_REPORT_FILE_NAME           | packager_summary_report.html          |                 |
+| SUPPORTED_FAMILIES                 | zynq Pre-Production          |                 |
+| SUPPORTS_AUTO_SLRS                 | 1                 |                 |
+| SUPPORTS_AUTO_XDC                  |                   |                    |
+| SUPPORTS_DEFERRED_ELABORATION      | 0                 |                 |
+| SUPPORTS_DYNAMIC_BITSTRINGS        | 0                 |                 |
+| SUPPORTS_IP_CACHE                  |                   |                    |
+| SUPPORTS_OOC                       |                   |                    |
+| SUPPORTS_VIVADO                    | 1                 |                 |
+| SYSTEMC_LIBRARIES                  |                   |                    |
+| TAGS                               | ui.data.coregen.dd@be90944_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2c8d8525_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@f7aa7b3_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@ffeff06_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@3ad146e5_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@26b0eaef_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1023e8ff_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1451be15_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@550f3856_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1077d2d6_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2f65df52_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@65db5a96_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1b5b121_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@3da291fb_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2289bb61_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@57b0a59b_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@6d45fd65_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@68059865_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2a01e104_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@598641ad_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@5fe36fb2_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@3fae13ab_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@78962b12_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@42b577ce_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@6ce4f82_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@7aae647b_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@3351eda7_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@459cc3ad_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@7d9537f0_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1f4edba6_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@20264a05_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@732e6b4e_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@15ee4cea_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@bb9ae9f_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@7ad38b2b_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@22e052d5_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@66f8bccb_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@20a9242d_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@7cc821a1_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@67f614ba_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@567f35fe_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2839a1cf_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@31fd4ceb_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@5372b2fb_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@4af334fa_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@a66c623_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@3c037ff8_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@586e287d_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@5002f443_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@75eeee0c_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@718fde7_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@43391207_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1af0141f_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@33dc38e2_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@5c30a205_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@10f8c1ea_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@4968cde2_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@6f87e51c_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@155138b1_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@21f0eadf_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@743f9732_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@190d8bfa_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1ea4cd51_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@17df5cbc_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@6f919f00_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2378bdcc_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@522d355f_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@6a0f0bd7_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@401f927_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@5b747d7b_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@63a1e138_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@32091d12_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@2315eea_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@49ba6b1e_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@4cf46ca0_ARCHIVE_LOCATION *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0 ui.data.coregen.dd@1107a...          | That's not even complete... |
+| TAXONOMY                           | /Embedded_Processing/AXI_Peripheral          |                 |
+| UNSUPPORTED_SIMULATORS             |                   |                    |
+| USE_VIVADO_HLS                     | 0                 |                 |
+| VENDOR                             | mdz               |                 |
+| VENDOR_DISPLAY_NAME                | maxdz8            |                 |
+| VERSION                            | 0.6               |                 |
+| VLNV                               | mdz:prototyping:add_some_bitz:0.6          |                 |
+| XILINX_VERSION                     | 2020.2            |                 |
+| XILINX_VERSION_COMPATIBILITY       |                   |                    |
+| XML_FILE_NAME                      | *&lt;BASE&gt;*/ip_repo/add_some_bitz_1.0/component.xml          |                 |
+| XPM_LIBRARIES                      |                   |                    |
 
-| Identifier                  | Observed value |Description |
-|-----------------------------|----------------|-------------|
-|ADD_DONT_TOUCH               |     0          |                        
-|ADVERTISEMENT_IP             |                              
-|ADVERTISEMENT_URL|                              
-|AUTO_DEVICE_PROPERTIES_FILTER|                              
-|AUTO_FAMILY_SUPPORT_LEVEL|                              
-|BLOCK_IP|                              
-|CHECKSUMS|                              
-|CLASS|                              
-|COMPANY_URL|                              
-|CORE_REVISION|                              
-|CREATION_DATE_TIME|                              
-|DEBUG_CORE_INFO|                              
-|DEFAULT_USER_PARAMETER_ADDED DEFINITION_SOURCE|                              
-|DESCRIPTION DESIGN_TOOL_CONTEXTS DEVICE_INDEPENDENT_SYNTH|                              
-|DIRTY|                              
-|DISPLAY_NAME EXAMPLE_DESIGN_NO_IP_IMPORT|                              
-|EXPECTED_FILEGROUPS|       | Deprecated? `replaced by the 'ipx::report_possible_file_groups' command` |                       
-|HIDE_IN_GUI
-|INTEGRITY_REPORT_FILE_NAME|                              
-|LIBRARY|                              
-|NAME|                              
-|PAYMENT_REQUIRED PREVIOUS_VERSION_FOR_UPGRADE|                              
-|REQUIRES_VIP|                              
-|RETAIN_COMPONENT_INTEGER_PORT_TYPE ROOT_DIRECTORY|                              
-|SDX_KERNEL|                              
-|SDX_KERNEL_TYPE|                              
-|SECURITY_CHECKED SUMMARY_REPORT_FILE_NAME|                              
-|SUPPORTED_FAMILIES|                              
-|SUPPORTS_AUTO_SLRS|                              
-|SUPPORTS_AUTO_XDC|                              
-|SUPPORTS_DEFERRED_ELABORATION|                              
-|SUPPORTS_DYNAMIC_BITSTRINGS SUPPORTS_IP_CACHE|                              
-|SUPPORTS_OOC|                              
-|SUPPORTS_VIVADO|                              
-|SYSTEMC_LIBRARIES|                              
-|TAGS|                              
-|TAXONOMY UNSUPPORTED_SIMULATORS|                              
-|USE_VIVADO_HLS|                              
-|VENDOR|                              
-|VENDOR_DISPLAY_NAME|                              
-|VERSION|                              
-|VLNV
-|XILINX_VERSION|                              
-|XILINX_VERSION_COMPATIBILITY|                              
-|XML_FILE_NAME XPM_LIBRARIES|    
+For the purpose of a more compact representation, the "base directory" containing the main project and the folder usually called `ip_repo` used to contain the component package and files is shortened as *&lt;BASE&gt;*.
