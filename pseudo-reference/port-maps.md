@@ -572,3 +572,5 @@ So, by the means of patience this is what we need to reproduce (hopefully less t
 |  0      | PHYSICAL_RIGHT_DEPENDENCY        |                     |
 |  0      | PHYSICAL_RIGHT_FORMAT_TYPE       | long            |
 |  0      | PHYSICAL_RIGHT_RESOLVE_TYPE      | immediate            |
+
+It turns out this is basically what you get out of `ipx::add_port_map`. Just change `LOGICAL_NAME`, `PHYSICAL_NAME` and you're good to go.
