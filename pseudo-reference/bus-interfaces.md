@@ -98,3 +98,186 @@ Bus interface properties of a typical AXI device component produced by the graph
 | 2       | NAME                                  | S00_AXI_CLK        |        |
 | 2       | SLAVE_BRIDGES                         | *&lt;nothing&gt;* |        |
 | 2       | SLAVE_MEMORY_MAP_REF                  | *&lt;nothing&gt;* |        |
+
+Bus parameters of `S_00_AXI` and their properties:
+
+| Element | Property                       | Observed value   |
+|---------|--------------------------------|------------------|
+|    0    | CLASS                          | bus_parameter    |
+|    0    | CONFIG_GROUPS                  |                  |
+|    0    | DESCRIPTION                    |                  |
+|    0    | DISPLAY_NAME                   |                  |
+|    0    | ENABLEMENT_DEPENDENCY          |                  |
+|    0    | ENABLEMENT_PRESENCE            | optional         |
+|    0    | ENABLEMENT_RESOLVE_TYPE        | immediate        |
+|    0    | ENABLEMENT_TCL_EXPR            |                  |
+|    0    | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                  |
+|    0    | ENABLEMENT_VALUE               | 1                |
+|    0    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH |
+|    0    | NAME                           | WIZ_DATA_WIDTH   |
+|    0    | ORDER                          | 0.000            |
+|    0    | PARAMETER_TYPES                |                  |
+|    0    | USAGE                          | all              |
+|    0    | VALUE                          | 32               |
+|    0    | VALUE_BIT_STRING_LENGTH        | 0                |
+|    0    | VALUE_DEPENDENCY               |                  |
+|    0    | VALUE_FORMAT                   | long             |
+|    0    | VALUE_RESOLVE_TYPE             | immediate        |
+|    0    | VALUE_SOURCE                   | constant         |
+|    0    | VALUE_TCL_EXPR                 |                  |
+|    0    | VALUE_TCL_EXPR_ARGUMENTS       |                  |
+|    0    | VALUE_VALIDATION_LIST          | 32               |
+|    0    | VALUE_VALIDATION_PAIRS         | 32 32            |
+|    0    | VALUE_VALIDATION_RANGE_MAXIMUM |                  |
+|    0    | VALUE_VALIDATION_RANGE_MINIMUM |                  |
+|    0    | VALUE_VALIDATION_TYPE          | list             |
+|    1    | CLASS                          | bus_parameter    |
+|    1    | CONFIG_GROUPS                  |                  |
+|    1    | DESCRIPTION                    |                  |
+|    1    | DISPLAY_NAME                   |                  |
+|    1    | ENABLEMENT_DEPENDENCY          |                  |
+|    1    | ENABLEMENT_PRESENCE            | optional         |
+|    1    | ENABLEMENT_RESOLVE_TYPE        | immediate        |
+|    1    | ENABLEMENT_TCL_EXPR            |                  |
+|    1    | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                  |
+|    1    | ENABLEMENT_VALUE               | 1                |
+|    1    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.WIZ_NUM_REG |
+|    1    | NAME                           | WIZ_NUM_REG      |
+|    1    | ORDER                          | 0.000            |
+|    1    | PARAMETER_TYPES                |                  |
+|    1    | USAGE                          | all              |
+|    1    | VALUE                          | 7                |
+|    1    | VALUE_BIT_STRING_LENGTH        | 0                |
+|    1    | VALUE_DEPENDENCY               |                  |
+|    1    | VALUE_FORMAT                   | long             |
+|    1    | VALUE_RESOLVE_TYPE             | immediate        |
+|    1    | VALUE_SOURCE                   | constant         |
+|    1    | VALUE_TCL_EXPR                 |                  |
+|    1    | VALUE_TCL_EXPR_ARGUMENTS       |                  |
+|    1    | VALUE_VALIDATION_LIST          |                  |
+|    1    | VALUE_VALIDATION_PAIRS         |                  |
+|    1    | VALUE_VALIDATION_RANGE_MAXIMUM | 512              |
+|    1    | VALUE_VALIDATION_RANGE_MINIMUM | 4                |
+|    1    | VALUE_VALIDATION_TYPE          | range_long       |
+|    2    | CLASS                          | bus_paramet      |
+|    2    | CONFIG_GROUPS                  |                  |
+|    2    | DESCRIPTION                    |                  |
+|    2    | DISPLAY_NAME                   |                  |
+|    2    | ENABLEMENT_DEPENDENCY          |                  |
+|    2    | ENABLEMENT_PRESENCE            | optional         |
+|    2    | ENABLEMENT_RESOLVE_TYPE        | immediate        |
+|    2    | ENABLEMENT_TCL_EXPR            |                  |
+|    2    | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                  |
+|    2    | ENABLEMENT_VALUE               | 1                |
+|    2    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.SUPPORTS_NARROW_BURST |
+|    2    | NAME                           | SUPPORTS_NARROW_BURST |
+|    2    | ORDER                          | 0.000            |
+|    2    | PARAMETER_TYPES                |                  |
+|    2    | USAGE                          | all              |
+|    2    | VALUE                          | 0                |
+|    2    | VALUE_BIT_STRING_LENGTH        | 0                |
+|    2    | VALUE_DEPENDENCY               |                  |
+|    2    | VALUE_FORMAT                   | long             |
+|    2    | VALUE_RESOLVE_TYPE             | immediate        |
+|    2    | VALUE_SOURCE                   | constant         |
+|    2    | VALUE_TCL_EXPR                 |                  |
+|    2    | VALUE_TCL_EXPR_ARGUMENTS       |                  |
+|    2    | VALUE_VALIDATION_LIST          | true:1 false:0   |
+|    2    | VALUE_VALIDATION_PAIRS         | true 1 false 0   |
+|    2    | VALUE_VALIDATION_RANGE_MAXIMUM |                  |
+|    2    | VALUE_VALIDATION_RANGE_MINIMUM |                  |
+|    2    | VALUE_VALIDATION_TYPE          | pairs            |
+
+Bus parameters of `S_00_AXI_RST` and their properties:
+
+| Element | Property                       | Observed value |
+|---------|--------------------------------|----------------|
+|    0    | CLASS                          | bus_parameter  |
+|    0    | CONFIG_GROUPS                  |                |
+|    0    | DESCRIPTION                    |                |
+|    0    | DISPLAY_NAME                   |                |
+|    0    | ENABLEMENT_DEPENDENCY          |                |
+|    0    | ENABLEMENT_PRESENCE            | optional       |
+|    0    | ENABLEMENT_RESOLVE_TYPE        | immediate      |
+|    0    | ENABLEMENT_TCL_EXPR            |                |
+|    0    | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                |
+|    0    | ENABLEMENT_VALUE               | 1              |
+|    0    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY |
+|    0    | NAME                           | POLARITY       |
+|    0    | ORDER                          | 0.000          |
+|    0    | PARAMETER_TYPES                |                |
+|    0    | USAGE                          | all            |
+|    0    | VALUE                          | ACTIVE_LOW     |
+|    0    | VALUE_BIT_STRING_LENGTH        | 0              |
+|    0    | VALUE_DEPENDENCY               |                |
+|    0    | VALUE_FORMAT                   | string         |
+|    0    | VALUE_RESOLVE_TYPE             | immediate      |
+|    0    | VALUE_SOURCE                   | constant       |
+|    0    | VALUE_TCL_EXPR                 |                |
+|    0    | VALUE_TCL_EXPR_ARGUMENTS       |                |
+|    0    | VALUE_VALIDATION_LIST          | ACTIVE_HIGH ACTIVE_LOW |
+|    0    | VALUE_VALIDATION_PAIRS         | ACTIVE_HIGH ACTIVE_HIGH ACTIVE_LOW ACTIVE_LOW |
+|    0    | VALUE_VALIDATION_RANGE_MAXIMUM |                |
+|    0    | VALUE_VALIDATION_RANGE_MINIMUM |                |
+|    0    | VALUE_VALIDATION_TYPE          | list           |
+
+Bus parameters of `S_00_AXI_CLK` and their properties:
+
+| Element | Property                       | Observed value |
+|---------|--------------------------------|----------------|
+|   0     | CLASS                          | bus_parameter  |
+|   0     | CONFIG_GROUPS                  |                |
+|   0     | DESCRIPTION                    | List of bus interface names separated by colons. For example, m_axis_a:s_axis_b:s_axis_c |
+|   0     | DISPLAY_NAME                   |                |
+|   0     | ENABLEMENT_DEPENDENCY          |                |
+|   0     | ENABLEMENT_PRESENCE            | optional       |
+|   0     | ENABLEMENT_RESOLVE_TYPE        | immediate      |
+|   0     | ENABLEMENT_TCL_EXPR            |                |
+|   0     | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                |
+|   0     | ENABLEMENT_VALUE               | 1              |
+|   0     | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI_CLK.ASSOCIATED_BUSIF   |
+|   0     | NAME                           | ASSOCIATED_BUSIF |
+|   0     | ORDER                          | 0.000          |
+|   0     | PARAMETER_TYPES                |                |
+|   0     | USAGE                          | all            |
+|   0     | VALUE                          | S00_AXI        |
+|   0     | VALUE_BIT_STRING_LENGTH        | 0              |
+|   0     | VALUE_DEPENDENCY               |                |
+|   0     | VALUE_FORMAT                   | string         |
+|   0     | VALUE_RESOLVE_TYPE             | immediate      |
+|   0     | VALUE_SOURCE                   | constant       |
+|   0     | VALUE_TCL_EXPR                 |                |
+|   0     | VALUE_TCL_EXPR_ARGUMENTS       |                |
+|   0     | VALUE_VALIDATION_LIST          |                |
+|   0     | VALUE_VALIDATION_PAIRS         |                |
+|   0     | VALUE_VALIDATION_RANGE_MAXIMUM |                |
+|   0     | VALUE_VALIDATION_RANGE_MINIMUM |                |
+|   0     | VALUE_VALIDATION_TYPE          | none           |
+|   1     | CLASS                          | bus_parameter  |
+|   1     | CONFIG_GROUPS                  |                |
+|   1     | DESCRIPTION                    |                |
+|   1     | DISPLAY_NAME                   |                |
+|   1     | ENABLEMENT_DEPENDENCY          |                |
+|   1     | ENABLEMENT_PRESENCE            | optional       |
+|   1     | ENABLEMENT_RESOLVE_TYPE        | immediate      |
+|   1     | ENABLEMENT_TCL_EXPR            |                |
+|   1     | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                |
+|   1     | ENABLEMENT_VALUE               | 1              |
+|   1     | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI_CLK.ASSOCIATED_RESET |
+|   1     | NAME                           | ASSOCIATED_RESET |
+|   1     | ORDER                          | 0.000          |
+|   1     | PARAMETER_TYPES                |                |
+|   1     | USAGE                          | all            |
+|   1     | VALUE                          | s00_axi_aresetn |
+|   1     | VALUE_BIT_STRING_LENGTH        | 0              |
+|   1     | VALUE_DEPENDENCY               |                |
+|   1     | VALUE_FORMAT                   | string         |
+|   1     | VALUE_RESOLVE_TYPE             | immediate      |
+|   1     | VALUE_SOURCE                   | constant       |
+|   1     | VALUE_TCL_EXPR                 |                |
+|   1     | VALUE_TCL_EXPR_ARGUMENTS       |                |
+|   1     | VALUE_VALIDATION_LIST          |                |
+|   1     | VALUE_VALIDATION_PAIRS         |                |
+|   1     | VALUE_VALIDATION_RANGE_MAXIMUM |                |
+|   1     | VALUE_VALIDATION_RANGE_MINIMUM |                |
+|   1     | VALUE_VALIDATION_TYPE          | none           |

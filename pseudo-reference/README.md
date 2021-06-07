@@ -227,9 +227,6 @@ As of Vivado 2020.2 (build 3064766 on Wed Nov 18 09:12:45 MST 2020) the followin
 | ipx::upgrade_core                             | Upgrade core to latest version of meta-data.                      |
 | ipx::utils::gen_cmodel_template               | Generates all the sls layers                                      |
 
-For help on an individual topic, type 'help <topic>'. For example:
-% help create_project
-```
 
 Vivado Design Suite Tcl Command Reference Guide (UG835) further notes other commands: in the *CreatePeripheral* and *IpFlow* category but to build the project (as in the sense of TCL script-based-project) additional commands are needed.
 Some of the useful commands include:
@@ -242,6 +239,6 @@ Commands are a thing, but their parameters and properties are another.
 
 1. Available [taxonomies](./taxonomies.md) (aka "categories", in their dialog).
 2. [Properties](./axi-component-properties.md) of an AXI component.
-3. [Bus interfaces](./bus-interfaces.md) of a component created by the regular project-based flow.
+3. [Bus interfaces](./bus-interfaces.md) of a component created by the regular project-based flow. Bus interface parameters included.
 4. [Ports](./io-ports.md) of a component created by the regular project-based flow **and** supporting some custom ports for the lulz (I usually just drive feedback LEDs or throw them away).
 5. [Port maps](./port-maps.md), putting ports into bus interfaces.
