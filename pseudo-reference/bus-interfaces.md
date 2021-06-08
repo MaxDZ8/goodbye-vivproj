@@ -99,6 +99,9 @@ Bus interface properties of a typical AXI device component produced by the graph
 | 2       | SLAVE_BRIDGES                         | *&lt;nothing&gt;* |        |
 | 2       | SLAVE_MEMORY_MAP_REF                  | *&lt;nothing&gt;* |        |
 
+
+# Bus parameters
+
 Bus parameters of `S_00_AXI` and their properties:
 
 | Element | Property                       | Observed value   |
@@ -159,7 +162,7 @@ Bus parameters of `S_00_AXI` and their properties:
 |    1    | VALUE_VALIDATION_RANGE_MAXIMUM | 512              |
 |    1    | VALUE_VALIDATION_RANGE_MINIMUM | 4                |
 |    1    | VALUE_VALIDATION_TYPE          | range_long       |
-|    2    | CLASS                          | bus_paramet      |
+|    2    | CLASS                          | bus_parameter    |
 |    2    | CONFIG_GROUPS                  |                  |
 |    2    | DESCRIPTION                    |                  |
 |    2    | DISPLAY_NAME                   |                  |
@@ -169,7 +172,7 @@ Bus parameters of `S_00_AXI` and their properties:
 |    2    | ENABLEMENT_TCL_EXPR            |                  |
 |    2    | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                  |
 |    2    | ENABLEMENT_VALUE               | 1                |
-|    2    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.SUPPORTS_NARROW_BURST |
+|    2    | IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.SUPPORTS_NARROW_BURST 
 |    2    | NAME                           | SUPPORTS_NARROW_BURST |
 |    2    | ORDER                          | 0.000            |
 |    2    | PARAMETER_TYPES                |                  |
