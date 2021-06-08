@@ -281,3 +281,10 @@ Bus parameters of `S_00_AXI_CLK` and their properties:
 |   1     | VALUE_VALIDATION_RANGE_MAXIMUM |                |
 |   1     | VALUE_VALIDATION_RANGE_MINIMUM |                |
 |   1     | VALUE_VALIDATION_TYPE          | none           |
+
+As long as we concern ourselves with `WIZ_NUM_REG`, which seems to be the number deciding how many `reg [C_S_AXI_DATA_WIDTH-1:0]	slv_regN` to declare in the *mux everything like there's no ~~tomorrow~~ timing* file, we might be tempted to hope parameters to be irrelevant. This is not the case for at least two reasons:
+
+1. They are present in the output `component.xml`, stuff such as `ASSOCIATED_BUSIF` is probably useful for block design automation.
+2. The code generating the driver has the habit of generating macros such as `#define MYCOMPONENT_AXI_S00_AXI_SLV_REG&lt;N&gt;_OFFSET &lt;N * 4&gt;`. I have difficulty understanding the use of such naming (it seems to me just reasoning in terms of ranges to be a better idea).
+
+So in short yes, they are used somehow and they even leak out to the main project using the component so I must reproduce them. Groan.
