@@ -56,7 +56,9 @@ TODO
 
 # Customization Parameters panel
 
-TODO
+![Customization parameters panel](./04_ip_pckgr_custom_params.png)
+Aka "[HDL parameters](./hdl-parameters.md)", required to define bus widths later.
+
 
 # Ports and interfaces panel
 
