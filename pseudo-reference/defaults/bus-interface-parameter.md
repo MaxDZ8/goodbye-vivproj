@@ -1,7 +1,7 @@
 Example command (using `$busAxi` as defined in the example script):
 ```
-set investigate [ ipx::add_bus_parameter WIZ_DATA_WIDTH $busAxi ]
-bus_parameter component_1 S00_AXI WIZ_DATA_WIDTH
+set investigate [ ipx::add_bus_parameter TEST $busAxi ]
+bus_parameter component_1 S00_AXI TEST
 ```
 
 And then investigating the properties as:
@@ -51,8 +51,8 @@ Produces the following.
 | ENABLEMENT_TCL_EXPR            |                    |
 | ENABLEMENT_TCL_EXPR_ARGUMENTS  |                    |
 | ENABLEMENT_VALUE               | 1                  |
-| IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH      |
-| NAME                           | WIZ_DATA_WIDTH     |
+| IPXACT_ID                      | BUSIFPARAM_VALUE.S00_AXI.TEST      |
+| NAME                           | TEST               |
 | ORDER                          | 0.000              |
 | PARAMETER_TYPES                |                    |
 | USAGE                          | all                |
