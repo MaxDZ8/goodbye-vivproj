@@ -124,8 +124,11 @@ get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 17]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 18]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 19]
 
-ipx::get_bus_interfaces -of_objects $periph
+set busses [ipx::get_bus_interfaces -of_objects $periph]
 # --> bus_interface component_1 S00_AXI bus_interface component_1 S00_AXI_RST bus_interface component_1 S00_AXI_CLK
+set busAxi [lindex $busses  0]
+set busRst [lindex $busses  1]
+set busClk [lindex $busses  2]
 proc get_bus_interface_props { thing } {
     puts "| ABSTRACTION_TYPE_LIBRARY              | [get_property ABSTRACTION_TYPE_LIBRARY              $thing] |"
     puts "| ABSTRACTION_TYPE_NAME                 | [get_property ABSTRACTION_TYPE_NAME                 $thing] |"
@@ -160,40 +163,206 @@ proc get_bus_interface_props { thing } {
     puts "| SLAVE_BRIDGES                         | [get_property SLAVE_BRIDGES                         $thing] |"
     puts "| SLAVE_MEMORY_MAP_REF                  | [get_property SLAVE_MEMORY_MAP_REF                  $thing] |"
 }
-get_bus_interface_props [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  0]
-get_bus_interface_props [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  1]
-get_bus_interface_props [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  2]
+get_bus_interface_props $busAxi
+get_bus_interface_props $busRst
+get_bus_interface_props $busClk
 
-ipx::get_bus_parameters -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  0]
+set investigate [ ipx::get_bus_parameters -of_objects $busAxi ]
 # --> bus_parameter component_1 S00_AXI WIZ_DATA_WIDTH bus_parameter component_1 S00_AXI WIZ_NUM_REG bus_parameter component_1 S00_AXI SUPPORTS_NARROW_BURST
-ipx::get_bus_parameters -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  1]
+proc get_bus_parameter_props { thing } {
+    puts "| CLASS                          | [get_property CLASS                          $thing] |"
+    puts "| CONFIG_GROUPS                  | [get_property CONFIG_GROUPS                  $thing] |"
+    puts "| DESCRIPTION                    | [get_property DESCRIPTION                    $thing] |"
+    puts "| DISPLAY_NAME                   | [get_property DISPLAY_NAME                   $thing] |"
+    puts "| ENABLEMENT_DEPENDENCY          | [get_property ENABLEMENT_DEPENDENCY          $thing] |"
+    puts "| ENABLEMENT_PRESENCE            | [get_property ENABLEMENT_PRESENCE            $thing] |"
+    puts "| ENABLEMENT_RESOLVE_TYPE        | [get_property ENABLEMENT_RESOLVE_TYPE        $thing] |"
+    puts "| ENABLEMENT_TCL_EXPR            | [get_property ENABLEMENT_TCL_EXPR            $thing] |"
+    puts "| ENABLEMENT_TCL_EXPR_ARGUMENTS  | [get_property ENABLEMENT_TCL_EXPR_ARGUMENTS  $thing] |"
+    puts "| ENABLEMENT_VALUE               | [get_property ENABLEMENT_VALUE               $thing] |"
+    puts "| IPXACT_ID                      | [get_property IPXACT_ID                      $thing] |"
+    puts "| NAME                           | [get_property NAME                           $thing] |"
+    puts "| ORDER                          | [get_property ORDER                          $thing] |"
+    puts "| PARAMETER_TYPES                | [get_property PARAMETER_TYPES                $thing] |"
+    puts "| USAGE                          | [get_property USAGE                          $thing] |"
+    puts "| VALUE                          | [get_property VALUE                          $thing] |"
+    puts "| VALUE_BIT_STRING_LENGTH        | [get_property VALUE_BIT_STRING_LENGTH        $thing] |"
+    puts "| VALUE_DEPENDENCY               | [get_property VALUE_DEPENDENCY               $thing] |"
+    puts "| VALUE_FORMAT                   | [get_property VALUE_FORMAT                   $thing] |"
+    puts "| VALUE_RESOLVE_TYPE             | [get_property VALUE_RESOLVE_TYPE             $thing] |"
+    puts "| VALUE_SOURCE                   | [get_property VALUE_SOURCE                   $thing] |"
+    puts "| VALUE_TCL_EXPR                 | [get_property VALUE_TCL_EXPR                 $thing] |"
+    puts "| VALUE_TCL_EXPR_ARGUMENTS       | [get_property VALUE_TCL_EXPR_ARGUMENTS       $thing] |"
+    puts "| VALUE_VALIDATION_LIST          | [get_property VALUE_VALIDATION_LIST          $thing] |"
+    puts "| VALUE_VALIDATION_PAIRS         | [get_property VALUE_VALIDATION_PAIRS         $thing] |"
+    puts "| VALUE_VALIDATION_RANGE_MAXIMUM | [get_property VALUE_VALIDATION_RANGE_MAXIMUM $thing] |"
+    puts "| VALUE_VALIDATION_RANGE_MINIMUM | [get_property VALUE_VALIDATION_RANGE_MINIMUM $thing] |"
+    puts "| VALUE_VALIDATION_TYPE          | [get_property VALUE_VALIDATION_TYPE          $thing] |"
+}
+get_bus_parameter_props [lindex $investigate 0]
+get_bus_parameter_props [lindex $investigate 1]
+get_bus_parameter_props [lindex $investigate 2]
+
+set investigate ipx::get_bus_parameters -of_objects $busRst
 # --> bus_parameter component_1 S00_AXI_RST POLARITY
-ipx::get_bus_parameters -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  2]
+get_bus_parameter_props [lindex $investigate 0]
+
+set investigate [ipx::get_bus_parameters -of_objects $busClk]
 # --> bus_parameter component_1 S00_AXI_CLK ASSOCIATED_BUSIF bus_parameter component_1 S00_AXI_CLK ASSOCIATED_RESET
+get_bus_parameter_props [lindex $investigate 0]
+get_bus_parameter_props [lindex $investigate 1]
 
-ipx::get_port_maps -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  0]
+set investigate [ipx::get_port_maps -of_objects $busAxi]
 # --> port_map component_1 S00_AXI AWADDR port_map component_1 S00_AXI AWPROT port_map component_1 S00_AXI AWVALID port_map component_1 S00_AXI AWREADY port_map component_1 S00_AXI WDATA port_map component_1 S00_AXI WSTRB port_map component_1 S00_AXI WVALID port_map component_1 S00_AXI WREADY port_map component_1 S00_AXI BRESP port_map component_1 S00_AXI BVALID port_map component_1 S00_AXI BREADY port_map component_1 S00_AXI ARADDR port_map component_1 S00_AXI ARPROT port_map component_1 S00_AXI ARVALID port_map component_1 S00_AXI ARREADY port_map component_1 S00_AXI RDATA port_map component_1 S00_AXI RRESP port_map component_1 S00_AXI RVALID port_map component_1 S00_AXI RREADY
-ipx::get_port_maps -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  1]
-# --> port_map component_1 S00_AXI_RST RST
-ipx::get_port_maps -of_objects [lindex [ ipx::get_bus_interfaces -of_objects $periph ]  2]
-# --> port_map component_1 S00_AXI_CLK CLK
+proc get_port_map_props { $thing }
+    puts "| CLASS                            | [get_property CLASS                            $thing] |"
+    puts "| IS_LOGICAL_VECTOR                | [get_property IS_LOGICAL_VECTOR                $thing] |"
+    puts "| IS_PHYSICAL_VECTOR               | [get_property IS_PHYSICAL_VECTOR               $thing] |"
+    puts "| LOGICAL_LEFT                     | [get_property LOGICAL_LEFT                     $thing] |"
+    puts "| LOGICAL_LEFT_BIT_STRING_LENGTH   | [get_property LOGICAL_LEFT_BIT_STRING_LENGTH   $thing] |"
+    puts "| LOGICAL_LEFT_DEPENDENCY          | [get_property LOGICAL_LEFT_DEPENDENCY          $thing] |"
+    puts "| LOGICAL_LEFT_FORMAT_TYPE         | [get_property LOGICAL_LEFT_FORMAT_TYPE         $thing] |"
+    puts "| LOGICAL_LEFT_RESOLVE_TYPE        | [get_property LOGICAL_LEFT_RESOLVE_TYPE        $thing] |"
+    puts "| LOGICAL_NAME                     | [get_property LOGICAL_NAME                     $thing] |"
+    puts "| LOGICAL_RIGHT                    | [get_property LOGICAL_RIGHT                    $thing] |"
+    puts "| LOGICAL_RIGHT_BIT_STRING_LENGTH  | [get_property LOGICAL_RIGHT_BIT_STRING_LENGTH  $thing] |"
+    puts "| LOGICAL_RIGHT_DEPENDENCY         | [get_property LOGICAL_RIGHT_DEPENDENCY         $thing] |"
+    puts "| LOGICAL_RIGHT_FORMAT_TYPE        | [get_property LOGICAL_RIGHT_FORMAT_TYPE        $thing] |"
+    puts "| LOGICAL_RIGHT_RESOLVE_TYPE       | [get_property LOGICAL_RIGHT_RESOLVE_TYPE       $thing] |"
+    puts "| PHYSICAL_LEFT                    | [get_property PHYSICAL_LEFT                    $thing] |"
+    puts "| PHYSICAL_LEFT_BIT_STRING_LENGTH  | [get_property PHYSICAL_LEFT_BIT_STRING_LENGTH  $thing] |"
+    puts "| PHYSICAL_LEFT_DEPENDENCY         | [get_property PHYSICAL_LEFT_DEPENDENCY         $thing] |"
+    puts "| PHYSICAL_LEFT_FORMAT_TYPE        | [get_property PHYSICAL_LEFT_FORMAT_TYPE        $thing] |"
+    puts "| PHYSICAL_LEFT_RESOLVE_TYPE       | [get_property PHYSICAL_LEFT_RESOLVE_TYPE       $thing] |"
+    puts "| PHYSICAL_NAME                    | [get_property PHYSICAL_NAME                    $thing] |"
+    puts "| PHYSICAL_RIGHT                   | [get_property PHYSICAL_RIGHT                   $thing] |"
+    puts "| PHYSICAL_RIGHT_BIT_STRING_LENGTH | [get_property PHYSICAL_RIGHT_BIT_STRING_LENGTH $thing] |"
+    puts "| PHYSICAL_RIGHT_DEPENDENCY        | [get_property PHYSICAL_RIGHT_DEPENDENCY        $thing] |"
+    puts "| PHYSICAL_RIGHT_FORMAT_TYPE       | [get_property PHYSICAL_RIGHT_FORMAT_TYPE       $thing] |"
+    puts "| PHYSICAL_RIGHT_RESOLVE_TYPE      | [get_property PHYSICAL_RIGHT_RESOLVE_TYPE      $thing] |"
+}
+get_port_map_props [lindex $investigate  0]
+get_port_map_props [lindex $investigate  1]
+get_port_map_props [lindex $investigate  2]
+get_port_map_props [lindex $investigate  3]
+get_port_map_props [lindex $investigate  4]
+get_port_map_props [lindex $investigate  5]
+get_port_map_props [lindex $investigate  6]
+get_port_map_props [lindex $investigate  7]
+get_port_map_props [lindex $investigate  8]
+get_port_map_props [lindex $investigate  9]
+get_port_map_props [lindex $investigate 10]
+get_port_map_props [lindex $investigate 11]
+get_port_map_props [lindex $investigate 12]
+get_port_map_props [lindex $investigate 13]
+get_port_map_props [lindex $investigate 14]
+get_port_map_props [lindex $investigate 15]
+get_port_map_props [lindex $investigate 16]
+get_port_map_props [lindex $investigate 17]
+get_port_map_props [lindex $investigate 18]
 
-ipx::get_memory_maps -of_objects $periph
+set investigate [ipx::get_port_maps -of_objects $busRst]
+# --> port_map component_1 S00_AXI_RST RST
+get_port_map_props [lindex $investigate  0]
+
+set investigate [ipx::get_port_maps -of_objects $busClk]
+# --> port_map component_1 S00_AXI_CLK CLK
+get_port_map_props [lindex $investigate  0]
+
+# Peripheral contains memory maps contains address blocks, each own with its address block parameters
+set investigate [ipx::get_memory_maps -of_objects $periph]
 # --> memory_map component_1 S00_AXI
 proc get_memory_map_props { thing } {
-    # TODO
+    puts "| CLASS                   | [get_property CLASS                   $thing] |"
+    puts "| DESCRIPTION             | [get_property DESCRIPTION             $thing] |"
+    puts "| DISPLAY_NAME            | [get_property DISPLAY_NAME            $thing] |"
+    puts "| ENABLEMENT_DEPENDENCY   | [get_property ENABLEMENT_DEPENDENCY   $thing] |"
+    puts "| ENABLEMENT_PRESENCE     | [get_property ENABLEMENT_PRESENCE     $thing] |"
+    puts "| ENABLEMENT_RESOLVE_TYPE | [get_property ENABLEMENT_RESOLVE_TYPE $thing] |"
+    puts "| ENABLEMENT_VALUE        | [get_property ENABLEMENT_VALUE        $thing] |"
+    puts "| NAME                    | [get_property NAME                    $thing] |"
+}
+get_memory_map_props $investigate
+
+set investigate [ipx::get_address_blocks -of_objects $investigate]
+# --> address_block component_1 S00_AXI S00_AXI_reg
+proc get_address_block_props { thing } {
+    puts "| ACCESS                         | [get_property ACCESS                         $thing] |"
+    puts "| BASE_ADDRESS                   | [get_property BASE_ADDRESS                   $thing] |"
+    puts "| BASE_ADDRESS_BIT_STRING_LENGTH | [get_property BASE_ADDRESS_BIT_STRING_LENGTH $thing] |"
+    puts "| BASE_ADDRESS_DEPENDENCY        | [get_property BASE_ADDRESS_DEPENDENCY        $thing] |"
+    puts "| BASE_ADDRESS_FORMAT            | [get_property BASE_ADDRESS_FORMAT            $thing] |"
+    puts "| BASE_ADDRESS_RESOLVE_TYPE      | [get_property BASE_ADDRESS_RESOLVE_TYPE      $thing] |"
+    puts "| CLASS                          | [get_property CLASS                          $thing] |"
+    puts "| DESCRIPTION                    | [get_property DESCRIPTION                    $thing] |"
+    puts "| DISPLAY_NAME                   | [get_property DISPLAY_NAME                   $thing] |"
+    puts "| ENABLEMENT_DEPENDENCY          | [get_property ENABLEMENT_DEPENDENCY          $thing] |"
+    puts "| ENABLEMENT_PRESENCE            | [get_property ENABLEMENT_PRESENCE            $thing] |"
+    puts "| ENABLEMENT_RESOLVE_TYPE        | [get_property ENABLEMENT_RESOLVE_TYPE        $thing] |"
+    puts "| ENABLEMENT_VALUE               | [get_property ENABLEMENT_VALUE               $thing] |"
+    puts "| NAME                           | [get_property NAME                           $thing] |"
+    puts "| RANGE                          | [get_property RANGE                          $thing] |"
+    puts "| RANGE_BIT_STRING_LENGTH        | [get_property RANGE_BIT_STRING_LENGTH        $thing] |"
+    puts "| RANGE_DEPENDENCY               | [get_property RANGE_DEPENDENCY               $thing] |"
+    puts "| RANGE_FORMAT                   | [get_property RANGE_FORMAT                   $thing] |"
+    puts "| RANGE_MAXIMUM                  | [get_property RANGE_MAXIMUM                  $thing] |"
+    puts "| RANGE_MINIMUM                  | [get_property RANGE_MINIMUM                  $thing] |"
+    puts "| RANGE_RESOLVE_TYPE             | [get_property RANGE_RESOLVE_TYPE             $thing] |"
+    puts "| USAGE                          | [get_property USAGE                          $thing] |"
+    puts "| WIDTH                          | [get_property WIDTH                          $thing] |"
+    puts "| WIDTH_BIT_STRING_LENGTH        | [get_property WIDTH_BIT_STRING_LENGTH        $thing] |"
+    puts "| WIDTH_DEPENDENCY               | [get_property WIDTH_DEPENDENCY               $thing] |"
+    puts "| WIDTH_FORMAT                   | [get_property WIDTH_FORMAT                   $thing] |"
+    puts "| WIDTH_RESOLVE_TYPE             | [get_property WIDTH_RESOLVE_TYPE             $thing] |"
 }
 
-# TODO memory map contains address blocks, each with its own address block parameters
 
-#### ipx::get_address_blocks -of_objects TODO_TODO_TODO
-#### ipx::get_address_block_parameters             | Get all the addressBlock parameter on an address block.           |
+set investigate [ipx::get_address_block_parameters -of_objects $investigate]
+# --> address_block_parameter component_1 S00_AXI S00_AXI_reg OFFSET_BASE_PARAM address_block_parameter component_1 S00_AXI S00_AXI_reg OFFSET_HIGH_PARAM
+proc get_address_block_parameter_props { thing } {
+    puts "| CLASS                          | [get_property CLASS                          $thing] |"
+    puts "| CONFIG_GROUPS                  | [get_property CONFIG_GROUPS                  $thing] |"
+    puts "| DESCRIPTION                    | [get_property DESCRIPTION                    $thing] |"
+    puts "| DISPLAY_NAME                   | [get_property DISPLAY_NAME                   $thing] |"
+    puts "| ENABLEMENT_DEPENDENCY          | [get_property ENABLEMENT_DEPENDENCY          $thing] |"
+    puts "| ENABLEMENT_PRESENCE            | [get_property ENABLEMENT_PRESENCE            $thing] |"
+    puts "| ENABLEMENT_RESOLVE_TYPE        | [get_property ENABLEMENT_RESOLVE_TYPE        $thing] |"
+    puts "| ENABLEMENT_TCL_EXPR            | [get_property ENABLEMENT_TCL_EXPR            $thing] |"
+    puts "| ENABLEMENT_TCL_EXPR_ARGUMENTS  | [get_property ENABLEMENT_TCL_EXPR_ARGUMENTS  $thing] |"
+    puts "| ENABLEMENT_VALUE               | [get_property ENABLEMENT_VALUE               $thing] |"
+    puts "| IPXACT_ID                      | [get_property IPXACT_ID                      $thing] |"
+    puts "| NAME                           | [get_property NAME                           $thing] |"
+    puts "| ORDER                          | [get_property ORDER                          $thing] |"
+    puts "| PARAMETER_TYPES                | [get_property PARAMETER_TYPES                $thing] |"
+    puts "| VALUE                          | [get_property VALUE                          $thing] |"
+    puts "| VALUE_BIT_STRING_LENGTH        | [get_property VALUE_BIT_STRING_LENGTH        $thing] |"
+    puts "| VALUE_DEPENDENCY               | [get_property VALUE_DEPENDENCY               $thing] |"
+    puts "| VALUE_FORMAT                   | [get_property VALUE_FORMAT                   $thing] |"
+    puts "| VALUE_RESOLVE_TYPE             | [get_property VALUE_RESOLVE_TYPE             $thing] |"
+    puts "| VALUE_SOURCE                   | [get_property VALUE_SOURCE                   $thing] |"
+    puts "| VALUE_TCL_EXPR                 | [get_property VALUE_TCL_EXPR                 $thing] |"
+    puts "| VALUE_TCL_EXPR_ARGUMENTS       | [get_property VALUE_TCL_EXPR_ARGUMENTS       $thing] |"
+    puts "| VALUE_VALIDATION_LIST          | [get_property VALUE_VALIDATION_LIST          $thing] |"
+    puts "| VALUE_VALIDATION_PAIRS         | [get_property VALUE_VALIDATION_PAIRS         $thing] |"
+    puts "| VALUE_VALIDATION_RANGE_MAXIMUM | [get_property VALUE_VALIDATION_RANGE_MAXIMUM $thing] |"
+    puts "| VALUE_VALIDATION_RANGE_MINIMUM | [get_property VALUE_VALIDATION_RANGE_MINIMUM $thing] |"
+    puts "| VALUE_VALIDATION_TYPE          | [get_property VALUE_VALIDATION_TYPE          $thing] |"
+}
+list_property [lindex $investigate 0]
+list_property [lindex $investigate 1]
 
+# It seems there's another thing called "address space", a couple commands to investigate them:
+ipx::get_address_spaces -of_objects $periph
+# --> !empty!
 
-
-
+# So, running this makes no sense.
 # ipx::get_address_space_parameters             | Get all the addressSpace parameter on an address space.           |
-# ipx::get_address_spaces                       | Get all the address space on a component.                         |
+
+
+
+
+# TODO ----- Where do those go?
+
 # ipx::get_bus_abstraction_ports                | Get all the bus abstraction port on a bus abstraction.            |
 # ipx::get_bus_parameter_abstraction_maps       | Get all the parameter abstraction map on a component or bus interface
 # ipx::get_channels                             | Get all the channel on a component.                               |
