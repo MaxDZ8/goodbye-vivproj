@@ -3,6 +3,17 @@ set periph [ create_peripheral {myCompany.com} {user} {testAXI1} {1.3} ]
 add_peripheral_interface {S00_AXI} -interface_mode {slave} -axi_type {lite} $periph
 generate_peripheral $periph
 
+# 3    8888888888 d8b 888                                                                   
+#      888        Y8P 888                                                                   
+#      888            888                                                                   
+#      8888888    888 888  .d88b.        .d88b.  888d888 .d88b.  888  888 88888b.  .d8888b  
+#      888        888 888 d8P  Y8b      d88P"88b 888P"  d88""88b 888  888 888 "88b 88K      
+#      888        888 888 88888888      888  888 888    888  888 888  888 888  888 "Y8888b. 
+#      888        888 888 Y8b.          Y88b 888 888    Y88..88P Y88b 888 888 d88P      X88 
+#      888        888 888  "Y8888        "Y88888 888     "Y88P"   "Y88888 88888P"   88888P' 
+#                                            888                          888               
+#                                       Y8b d88P                          888               
+#                                        "Y88P"                           888               
 
 ipx::get_file_groups -of_objects $periph
 # --> file_group component_1 xilinx_verilogsynthesis file_group component_1 xilinx_verilogbehavioralsimulation file_group component_1 xilinx_xpgui file_group component_1 bd_tcl
@@ -29,6 +40,21 @@ ipx::get_file_group_parameters -of_objects [lindex [ ipx::get_file_groups -of_ob
 ipx::get_file_group_parameters -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 2]
 ipx::get_file_group_parameters -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 3]
 
+# Syntactic sugar?
+# ipx::get_file_groups_for_envid                | Get all file_groups that match the specified env_ids.             |
+# ^ Why does that exist? Can't you just ipx::get_file_groups -filter ?
+# Consider:
+#    Vivado% ipx::get_file_groups_for_envid :vivado.xilinx.com:block.diagram $periph
+#    file_group component_1 bd_tcl
+#    Vivado% ipx::get_file_groups -of_objects $periph -filter {ENV_IDS == :vivado.xilinx.com:block.diagram}
+#    file_group component_1 bd_tcl
+# I guess filtering can get really unconvenient when it comes to multiple values but w/e.
+
+
+# ipx::get_parameter_abstractions, help reads "Get all parameter abstractions from a parameter abstraction."
+# But, if you read the help -of_objects: "Parent parameter definition objects to get parameter abstraction from".
+# So I guess the docs are broken - what a surprise - and it can be applied to everything being a "parameter" of some form?
+# File groups have none anyway.
 
 ipx::get_hdl_parameters -of_objects $periph
 # --> hdl_parameter component_1 C_S00_AXI_DATA_WIDTH hdl_parameter component_1 C_S00_AXI_ADDR_WIDTH
@@ -65,6 +91,35 @@ proc get_hdl_parameter_props { thing } {
 }
 get_hdl_parameter_props [lindex [ ipx::get_hdl_parameters -of_objects $periph ] 0]
 get_hdl_parameter_props [lindex [ ipx::get_hdl_parameters -of_objects $periph ] 1]
+
+ipx::get_parameter_abstractions -of_objects [lindex [ ipx::get_hdl_parameters -of_objects $periph ] 0]
+ipx::get_parameter_abstractions -of_objects [lindex [ ipx::get_hdl_parameters -of_objects $periph ] 1]
+# ^ Both return nothing.
+
+# ipx::get_user_parameters         Get all the user parameters on a component. 
+# ipx::get_user_parameters $periph
+# Would return empty.
+
+
+# ipx::get_parameter_maps                       | Get all the parameter map on a component.                         |
+# ipx::get_parameter_maps                       | Evaluates to nothing.
+# ipx::get_parameter_maps -of_objects $periph   | Evaluates to nothing.
+
+
+# ipx::get_parameter_abstraction_maps                 | Get all the parameter abstraction map on a component.             |
+# ipx::get_parameter_abstraction_maps                 | Evaluates to nothing.
+# Vivado% ipx::get_parameter_abstraction_maps $periph | Evaluates to nothing.
+# As usual, help is of great use - we can intuitively understand there's a correlation with parameter_abstraction? ... and ... what?
+
+                                                                                                                                                                                             
+# 5    8888888b.                  888                                8888888          888                     .d888                                   
+#      888   Y88b                 888                                  888            888                    d88P"                                    
+#      888    888                 888                                  888            888                    888                                      
+#      888   d88P .d88b.  888d888 888888 .d8888b       88888b.         888   88888b.  888888 .d88b.  888d888 888888 8888b.   .d8888b .d88b.  .d8888b  
+#      8888888P" d88""88b 888P"   888    88K           888 "88b        888   888 "88b 888   d8P  Y8b 888P"   888       "88b d88P"   d8P  Y8b 88K      
+#      888       888  888 888     888    "Y8888b.      888  888        888   888  888 888   88888888 888     888   .d888888 888     88888888 "Y8888b. 
+#      888       Y88..88P 888     Y88b.       X88      888  888        888   888  888 Y88b. Y8b.     888     888   888  888 Y88b.   Y8b.          X88 
+#      888        "Y88P"  888      "Y888  88888P'      888  888      8888888 888  888  "Y888 "Y8888  888     888   "Y888888  "Y8888P "Y8888   88888P' 
 
 ipx::get_ports -of_objects $periph
 # --> port component_1 s00_axi_awaddr port component_1 s00_axi_awprot port component_1 s00_axi_awvalid port component_1 s00_axi_awready port component_1 s00_axi_wdata port component_1 s00_axi_wstrb port component_1 s00_axi_wvalid port component_1 s00_axi_wready port component_1 s00_axi_bresp port component_1 s00_axi_bvalid port component_1 s00_axi_bready port component_1 s00_axi_araddr port component_1 s00_axi_arprot port component_1 s00_axi_arvalid port component_1 s00_axi_arready port component_1 s00_axi_rdata port component_1 s00_axi_rresp port component_1 s00_axi_rvalid port component_1 s00_axi_rready port component_1 s00_axi_aclk port component_1 s00_axi_aresetn
@@ -123,6 +178,17 @@ get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 16]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 17]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 18]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 19]
+
+# ipx::get_tlm_ports                            | Get all the transactional ports on a component.                   |
+# Tried: ipx::get_tlm_ports                     | Evaluated to nothing
+# Tried: ipx::get_tlm_ports -of_objects $periph | Evaluated to nothing
+
+# ipx::get_service_parameters                   | Get all the service parameter on a transactional port.            |
+# Cool, but there are no transactional ports to investigate.
+
+# ipx::get_tlm_interfaces                            | Get all the transactional interfaces on a component.              |
+# Tried: ipx::get_tlm_interfaces                     | Evaluated to nothing
+# Tried: ipx::get_tlm_interfaces -of_objects $periph | Evaluated to nothing
 
 set busses [ipx::get_bus_interfaces -of_objects $periph]
 # --> bus_interface component_1 S00_AXI bus_interface component_1 S00_AXI_RST bus_interface component_1 S00_AXI_CLK
@@ -203,7 +269,12 @@ get_bus_parameter_props [lindex $investigate 0]
 get_bus_parameter_props [lindex $investigate 1]
 get_bus_parameter_props [lindex $investigate 2]
 
-set investigate ipx::get_bus_parameters -of_objects $busRst
+# Those three all evaluate to nothing empty nil
+ipx::get_parameter_abstractions -of_objects [lindex $investigate 0]
+ipx::get_parameter_abstractions -of_objects [lindex $investigate 1]
+ipx::get_parameter_abstractions -of_objects [lindex $investigate 2]
+
+set investigate [ipx::get_bus_parameters -of_objects $busRst]
 # --> bus_parameter component_1 S00_AXI_RST POLARITY
 get_bus_parameter_props [lindex $investigate 0]
 
@@ -214,7 +285,7 @@ get_bus_parameter_props [lindex $investigate 1]
 
 set investigate [ipx::get_port_maps -of_objects $busAxi]
 # --> port_map component_1 S00_AXI AWADDR port_map component_1 S00_AXI AWPROT port_map component_1 S00_AXI AWVALID port_map component_1 S00_AXI AWREADY port_map component_1 S00_AXI WDATA port_map component_1 S00_AXI WSTRB port_map component_1 S00_AXI WVALID port_map component_1 S00_AXI WREADY port_map component_1 S00_AXI BRESP port_map component_1 S00_AXI BVALID port_map component_1 S00_AXI BREADY port_map component_1 S00_AXI ARADDR port_map component_1 S00_AXI ARPROT port_map component_1 S00_AXI ARVALID port_map component_1 S00_AXI ARREADY port_map component_1 S00_AXI RDATA port_map component_1 S00_AXI RRESP port_map component_1 S00_AXI RVALID port_map component_1 S00_AXI RREADY
-proc get_port_map_props { $thing }
+proc get_port_map_props { $thing } {
     puts "| CLASS                            | [get_property CLASS                            $thing] |"
     puts "| IS_LOGICAL_VECTOR                | [get_property IS_LOGICAL_VECTOR                $thing] |"
     puts "| IS_PHYSICAL_VECTOR               | [get_property IS_PHYSICAL_VECTOR               $thing] |"
@@ -269,6 +340,18 @@ set investigate [ipx::get_port_maps -of_objects $busClk]
 # --> port_map component_1 S00_AXI_CLK CLK
 get_port_map_props [lindex $investigate  0]
 
+# 8           d8888      888                  d8b                                      888b     d888                                         
+#            d88888      888                  Y8P                                      8888b   d8888                                         
+#           d88P888      888                                                           88888b.d88888                                         
+#          d88P 888  .d88888 888d888 .d8888b  888 88888b.   .d88b.       88888b.       888Y88888P888  .d88b.  88888b.d88b.  888d888 888  888 
+#         d88P  888 d88" 888 888P"   88K      888 888 "88b d88P"88b      888 "88b      888 Y888P 888 d8P  Y8b 888 "888 "88b 888P"   888  888 
+#        d88P   888 888  888 888     "Y8888b. 888 888  888 888  888      888  888      888  Y8P  888 88888888 888  888  888 888     888  888 
+#       d8888888888 Y88b 888 888          X88 888 888  888 Y88b 888      888  888      888   "   888 Y8b.     888  888  888 888     Y88b 888 
+#      d88P     888  "Y88888 888      88888P' 888 888  888  "Y88888      888  888      888       888  "Y8888  888  888  888 888      "Y88888 
+#                                                               888                                                                      888 
+#                                                          Y8b d88P                                                                 Y8b d88P 
+#                                                           "Y88P"                                                                   "Y88P"  
+
 # Peripheral contains memory maps contains address blocks, each own with its address block parameters
 set investigate [ipx::get_memory_maps -of_objects $periph]
 # --> memory_map component_1 S00_AXI
@@ -283,6 +366,9 @@ proc get_memory_map_props { thing } {
     puts "| NAME                    | [get_property NAME                    $thing] |"
 }
 get_memory_map_props $investigate
+
+ipx::get_subspace_maps -of_objects $investigate
+# Evaluates to nothing.
 
 set investigate [ipx::get_address_blocks -of_objects $investigate]
 # --> address_block component_1 S00_AXI S00_AXI_reg
@@ -316,6 +402,16 @@ proc get_address_block_props { thing } {
     puts "| WIDTH_RESOLVE_TYPE             | [get_property WIDTH_RESOLVE_TYPE             $thing] |"
 }
 
+# ipx::get_registers                            | Get all registers from an address block.                          |
+# So cool! Maybe we can set register names? It would be lovely but... that's for another time as
+#   ipx::get_registers -of_objects [lindex $investigate 0]
+# is empty :sadface:
+
+# ipx::get_fields                               | Get all fields from a register.                                   |
+# Wow! Maybe I can define my bitflags ? Would be nice but... that's again for another time.
+
+# ipx::get_register_parameters                  | Get all the register parameter on an register.                    |
+# Nothing to do for this one - no registers to probe.
 
 set investigate [ipx::get_address_block_parameters -of_objects $investigate]
 # --> address_block_parameter component_1 S00_AXI S00_AXI_reg OFFSET_BASE_PARAM address_block_parameter component_1 S00_AXI S00_AXI_reg OFFSET_HIGH_PARAM
@@ -355,35 +451,54 @@ list_property [lindex $investigate 1]
 ipx::get_address_spaces -of_objects $periph
 # --> !empty!
 
-# So, running this makes no sense.
+# So, running those makes no sense.
 # ipx::get_address_space_parameters             | Get all the addressSpace parameter on an address space.           |
+# ipx::get_segments                             | Get all the addressSpace address segment on an address space.     |
 
 
 
+#    888b     d888 d8b                   
+#    8888b   d8888 Y8P                   
+#    88888b.d88888                       
+#    888Y88888P888 888 .d8888b   .d8888b 
+#    888 Y888P 888 888 88K      d88P"    
+#    888  Y8P  888 888 "Y8888b. 888      
+#    888   "   888 888      X88 Y88b.    
+#    888       888 888  88888P'  "Y8888P 
+#
+# No clue where those even go
+ipx::get_cpus
+ipx::get_cpus -of_objects $periph
+# ^ Both evaluate to nothing.
 
-# TODO ----- Where do those go?
+# Not really useful for us
+## ipx::get_cores
+# ^ Crunches for a while. Returns a list of 350 components conveniently named component0...component349.
+# ^ Pulled from the default repository? From all the configured repositories?
+
+ipx::get_project_parameters $periph
+# ^ Evaluates to nothing. Who knows what a "project parameter" is supposed to be?
+
+# ipx::get_generators                           | Get all the generator on a component.                             |
+# ipx::get_generators                           | Evaluates to nothing.
+# ipx::get_generators -of_objects $periph       | Evaluates to nothing.
+
+
+# ipx::get_channels                             | Get all the channel on a component.                               |
+# ipx::get_channels                             | Evaluates to nothing.
+# ipx::get_channels -of_objects                 | Evaluates to nothing.
+# What is a "channel" anyway?
+
+
+# ipx::get_bus_parameter_abstraction_maps                     | Get all the parameter abstraction map on a component or bus interface
+# ipx::get_bus_parameter_abstraction_maps                     | Evaluates to nothing
+# ipx::get_bus_parameter_abstraction_maps -of_objects $periph | Evaluates to nothing
+# ipx::get_bus_parameter_abstraction_maps -of_objects $busAxi | Evaluates to nothing
+# ipx::get_bus_parameter_abstraction_maps -of_objects $busClk | Evaluates to nothing
+# ipx::get_bus_parameter_abstraction_maps -of_objects $busRst | Evaluates to nothing
+# I get you guys at Xilinx know about that. I get some people has contacts to enquiry.
+# I assume this information is serious competitive advantage because why not to just document it is beyond me.
+
 
 # ipx::get_bus_abstraction_ports                | Get all the bus abstraction port on a bus abstraction.            |
-# ipx::get_bus_parameter_abstraction_maps       | Get all the parameter abstraction map on a component or bus interface
-# ipx::get_channels                             | Get all the channel on a component.                               |
-# ipx::get_cores                                | Get a list of available ipx cores                                 |
-# ipx::get_cpus                                 | Get all the cpu on a component.                                   |
-# ipx::get_fields                               | Get all fields from a register.                                   |
-# ipx::get_file_groups_for_envid                | Get all file_groups that match the specified env_ids.             |
-# ipx::get_file_groups_for_file                 | Get all file_groups that contain the specified file name.         |
-# ipx::get_files                                | Get all or selected files a file group.                           |
-# ipx::get_generator_parameters                 | Get all the generator parameter on a generator.                   |
-# ipx::get_generators                           | Get all the generator on a component.                             |
-# ipx::get_parameter_abstraction_maps           | Get all the parameter abstraction map on a component.             |
-# ipx::get_parameter_abstractions               | Get all parameter abstractions from a parameter abstraction.      |
-# ipx::get_parameter_maps                       | Get all the parameter map on a component.                         |
-# ipx::get_project_parameters                   | Get all the project parameters on a component.                    |
-# ipx::get_register_parameters                  | Get all the register parameter on an register.                    |
-# ipx::get_registers                            | Get all registers from an address block.                          |
-# ipx::get_segments                             | Get all the addressSpace address segment on an address space.     |
-# ipx::get_service_parameters                   | Get all the service parameter on a transactional port.            |
-# ipx::get_subcores                             | Get all subcores from a fileGroup.                                |
-# ipx::get_subspace_maps                        | Get all the subspace maps on a memory map.                        |
-# ipx::get_tlm_interfaces                       | Get all the transactional interfaces on a component.              |
-# ipx::get_tlm_ports                            | Get all the transactional ports on a component.                   |
-# ipx::get_user_parameters                      | Get all the user parameters on a component.                       |
+# ^ Lovely, but what is a "bus abstraction" and how to get it? Shouldn't there be a "ipx::get_bus_abstractions" command somewhere?
