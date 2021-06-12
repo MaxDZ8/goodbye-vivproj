@@ -110,5 +110,20 @@ Properties of the `$periph` object itself, which is the *component* we want to p
 | XML_FILE_NAME                      | *&lt;SRCDIR&gt;*/.srcs/sources_1/ip/component.xml |  *&lt;same&gt;*  | *&lt;SRCDIR&gt;*/.srcs/sources_1/ip/testAXI1_1.3/component.xml
 | XPM_LIBRARIES                      |                                            |  *&lt;same&gt;*  | *&lt;same&gt;*
 
-Note: in the above *&lt;SRCDIR&gt* is the directory where I started Vivado. Substituted for clarity.
+Note: in the above *&lt;SRCDIR&gt;* is the directory where I started Vivado. Substituted for clarity.
+
+The component features additional content which is to be pulled by the appropriate `get_` command.
+
+# Files in their groups
+A picture is better than a thousand words so let's check out the thing graphically, as it would appear in the IP packager:
+![Files and groups, as hierarchy](./minimal-ippack2-file-groups_hier.png)
+
+# Ports and interfaces
+This one is fairly complicated.
+![Ports and interfaces as visualized by the packager](./minimal-ippack4-bus-interfaces.png)
+
+# Addressing and memory
+This one is so weird the graphics don't quite work. The bottom line is a device has at least a memory map. Each memory map contains one or more address blocks and each address block can have its parameters.
+![Memory addressing, visualized](./minimal-ippack5-addressing-and-memory.png)
+
 
