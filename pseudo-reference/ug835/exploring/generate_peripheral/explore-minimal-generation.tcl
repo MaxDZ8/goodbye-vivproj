@@ -115,6 +115,41 @@ ipx::get_file_group_parameters -of_objects [lindex [ ipx::get_file_groups -of_ob
 #    file_group component_1 bd_tcl
 # I guess filtering can get really unconvenient when it comes to multiple values but w/e.
 
+# Most likely this is an helper as well
+# ipx::get_file_groups_for_file                 | Get all file_groups that contain the specified file name.         |
+
+set synthFiles [ipx::get_files -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 0]]
+# --> file component_1 xilinx_verilogsynthesis hdl/testAXI1_v1_3_S00_AXI.v file component_1 xilinx_verilogsynthesis hdl/testAXI1_v1_3.v
+set simFiles [ipx::get_files -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 1]]
+# --> file component_1 xilinx_verilogbehavioralsimulation hdl/testAXI1_v1_3_S00_AXI.v file component_1 xilinx_verilogbehavioralsimulation hdl/testAXI1_v1_3.v
+set guiFiles [ipx::get_files -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 2]]
+# --> file component_1 xilinx_xpgui xgui/testAXI1_v1_3.tcl
+set bdFiles [ipx::get_files -of_objects [lindex [ ipx::get_file_groups -of_objects $periph ] 3]]
+# --> file component_1 bd_tcl bd/bd.tcl
+proc get_file_props { thing } {
+    puts "| CELL_NAME        | [get_property CELL_NAME        $thing] |"
+    puts "| CLASS            | [get_property CLASS            $thing] |"
+    puts "| DEPENDENCY       | [get_property DEPENDENCY       $thing] |"
+    puts "| DESCRIPTION      | [get_property DESCRIPTION      $thing] |"
+    puts "| EXPORTED_NAMES   | [get_property EXPORTED_NAMES   $thing] |"
+    puts "| FILE_GROUP_NAME  | [get_property FILE_GROUP_NAME  $thing] |"
+    puts "| IS_INCLUDE       | [get_property IS_INCLUDE       $thing] |"
+    puts "| LIBRARY_NAME     | [get_property LIBRARY_NAME     $thing] |"
+    puts "| NAME             | [get_property NAME             $thing] |"
+    puts "| PROCESSING_ORDER | [get_property PROCESSING_ORDER $thing] |"
+    puts "| SCOPED_TO_CELLS  | [get_property SCOPED_TO_CELLS  $thing] |"
+    puts "| SCOPED_TO_REF    | [get_property SCOPED_TO_REF    $thing] |"
+    puts "| TYPE             | [get_property TYPE             $thing] |"
+    puts "| USED_IN          | [get_property USED_IN          $thing] |"
+    puts "| XGUI_VERSION     | [get_property XGUI_VERSION     $thing] |"
+}
+get_file_props [ lindex [ipx::get_files -of_objects $synthFiles] 0 ]
+get_file_props [ lindex [ipx::get_files -of_objects $synthFiles] 1 ]
+get_file_props [ lindex [ipx::get_files -of_objects $simFiles  ] 0 ]
+get_file_props [ lindex [ipx::get_files -of_objects $simFiles  ] 1 ]
+get_file_props [ lindex [ipx::get_files -of_objects $guiFiles  ] 0 ]
+get_file_props [ lindex [ipx::get_files -of_objects $bdFiles   ] 0 ]
+
 
 # ipx::get_parameter_abstractions, help reads "Get all parameter abstractions from a parameter abstraction."
 # But, if you read the help -of_objects: "Parent parameter definition objects to get parameter abstraction from".
