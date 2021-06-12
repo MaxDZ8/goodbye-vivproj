@@ -1,7 +1,72 @@
+# A "minimal" example about generate_peripheral - what data does it generate?
+# Secondary goal: document the various properties by being a bit verbose.
+# This way, we get the fields and their values so we at least know what to modify!
+
 read_verilog -sv mdz_custom_logic.sv
 set periph [ create_peripheral {myCompany.com} {user} {testAXI1} {1.3} ]
+proc get_peripheral_props { thing } {
+    puts "| ADD_DONT_TOUCH                     | [get_property ADD_DONT_TOUCH                     $thing]"
+    puts "| ADVERTISEMENT_IP                   | [get_property ADVERTISEMENT_IP                   $thing]"
+    puts "| ADVERTISEMENT_URL                  | [get_property ADVERTISEMENT_URL                  $thing]"
+    puts "| AUTO_DEVICE_PROPERTIES_FILTER      | [get_property AUTO_DEVICE_PROPERTIES_FILTER      $thing]"
+    puts "| AUTO_FAMILY_SUPPORT_LEVEL          | [get_property AUTO_FAMILY_SUPPORT_LEVEL          $thing]"
+    puts "| BLOCK_IP                           | [get_property BLOCK_IP                           $thing]"
+    puts "| CHECKSUMS                          | [get_property CHECKSUMS                          $thing]"
+    puts "| CLASS                              | [get_property CLASS                              $thing]"
+    puts "| COMPANY_URL                        | [get_property COMPANY_URL                        $thing]"
+    puts "| CORE_REVISION                      | [get_property CORE_REVISION                      $thing]"
+    puts "| CREATION_DATE_TIME                 | [get_property CREATION_DATE_TIME                 $thing]"
+    puts "| DEBUG_CORE_INFO                    | [get_property DEBUG_CORE_INFO                    $thing]"
+    puts "| DEFAULT_USER_PARAMETER_ADDED       | [get_property DEFAULT_USER_PARAMETER_ADDED       $thing]"
+    puts "| DEFINITION_SOURCE                  | [get_property DEFINITION_SOURCE                  $thing]"
+    puts "| DESCRIPTION                        | [get_property DESCRIPTION                        $thing]"
+    puts "| DESIGN_TOOL_CONTEXTS               | [get_property DESIGN_TOOL_CONTEXTS               $thing]"
+    puts "| DEVICE_INDEPENDENT_SYNTH           | [get_property DEVICE_INDEPENDENT_SYNTH           $thing]"
+    puts "| DIRTY                              | [get_property DIRTY                              $thing]"
+    puts "| DISPLAY_NAME                       | [get_property DISPLAY_NAME                       $thing]"
+    puts "| EXAMPLE_DESIGN_NO_IP_IMPORT        | [get_property EXAMPLE_DESIGN_NO_IP_IMPORT        $thing]"
+    puts "| EXPECTED_FILEGROUPS                | [get_property EXPECTED_FILEGROUPS                $thing]"
+    puts "| HIDE_IN_GUI                        | [get_property HIDE_IN_GUI                        $thing]"
+    puts "| INTEGRITY_REPORT_FILE_NAME         | [get_property INTEGRITY_REPORT_FILE_NAME         $thing]"
+    puts "| LIBRARY                            | [get_property LIBRARY                            $thing]"
+    puts "| NAME                               | [get_property NAME                               $thing]"
+    puts "| PAYMENT_REQUIRED                   | [get_property PAYMENT_REQUIRED                   $thing]"
+    puts "| PREVIOUS_VERSION_FOR_UPGRADE       | [get_property PREVIOUS_VERSION_FOR_UPGRADE       $thing]"
+    puts "| REQUIRES_VIP                       | [get_property REQUIRES_VIP                       $thing]"
+    puts "| RETAIN_COMPONENT_INTEGER_PORT_TYPE | [get_property RETAIN_COMPONENT_INTEGER_PORT_TYPE $thing]"
+    puts "| ROOT_DIRECTORY                     | [get_property ROOT_DIRECTORY                     $thing]"
+    puts "| SDX_KERNEL                         | [get_property SDX_KERNEL                         $thing]"
+    puts "| SDX_KERNEL_TYPE                    | [get_property SDX_KERNEL_TYPE                    $thing]"
+    puts "| SECURITY_CHECKED                   | [get_property SECURITY_CHECKED                   $thing]"
+    puts "| SUMMARY_REPORT_FILE_NAME           | [get_property SUMMARY_REPORT_FILE_NAME           $thing]"
+    puts "| SUPPORTED_FAMILIES                 | [get_property SUPPORTED_FAMILIES                 $thing]"
+    puts "| SUPPORTS_AUTO_SLRS                 | [get_property SUPPORTS_AUTO_SLRS                 $thing]"
+    puts "| SUPPORTS_AUTO_XDC                  | [get_property SUPPORTS_AUTO_XDC                  $thing]"
+    puts "| SUPPORTS_DEFERRED_ELABORATION      | [get_property SUPPORTS_DEFERRED_ELABORATION      $thing]"
+    puts "| SUPPORTS_DYNAMIC_BITSTRINGS        | [get_property SUPPORTS_DYNAMIC_BITSTRINGS        $thing]"
+    puts "| SUPPORTS_IP_CACHE                  | [get_property SUPPORTS_IP_CACHE                  $thing]"
+    puts "| SUPPORTS_OOC                       | [get_property SUPPORTS_OOC                       $thing]"
+    puts "| SUPPORTS_VIVADO                    | [get_property SUPPORTS_VIVADO                    $thing]"
+    puts "| SYSTEMC_LIBRARIES                  | [get_property SYSTEMC_LIBRARIES                  $thing]"
+    puts "| TAGS                               | [get_property TAGS                               $thing]"
+    puts "| TAXONOMY                           | [get_property TAXONOMY                           $thing]"
+    puts "| UNSUPPORTED_SIMULATORS             | [get_property UNSUPPORTED_SIMULATORS             $thing]"
+    puts "| USE_VIVADO_HLS                     | [get_property USE_VIVADO_HLS                     $thing]"
+    puts "| VENDOR                             | [get_property VENDOR                             $thing]"
+    puts "| VENDOR_DISPLAY_NAME                | [get_property VENDOR_DISPLAY_NAME                $thing]"
+    puts "| VERSION                            | [get_property VERSION                            $thing]"
+    puts "| VLNV                               | [get_property VLNV                               $thing]"
+    puts "| XILINX_VERSION                     | [get_property XILINX_VERSION                     $thing]"
+    puts "| XILINX_VERSION_COMPATIBILITY       | [get_property XILINX_VERSION_COMPATIBILITY       $thing]"
+    puts "| XML_FILE_NAME                      | [get_property XML_FILE_NAME                      $thing]"
+    puts "| XPM_LIBRARIES                      | [get_property XPM_LIBRARIES                      $thing]"
+}
+
+get_peripheral_props $periph
 add_peripheral_interface {S00_AXI} -interface_mode {slave} -axi_type {lite} $periph
+get_peripheral_props $periph
 generate_peripheral $periph
+get_peripheral_props $periph
 
 # 3    8888888888 d8b 888                                                                   
 #      888        Y8P 888                                                                   
