@@ -143,12 +143,12 @@ proc get_file_props { thing } {
     puts "| USED_IN          | [get_property USED_IN          $thing] |"
     puts "| XGUI_VERSION     | [get_property XGUI_VERSION     $thing] |"
 }
-get_file_props [ lindex [ipx::get_files -of_objects $synthFiles] 0 ]
-get_file_props [ lindex [ipx::get_files -of_objects $synthFiles] 1 ]
-get_file_props [ lindex [ipx::get_files -of_objects $simFiles  ] 0 ]
-get_file_props [ lindex [ipx::get_files -of_objects $simFiles  ] 1 ]
-get_file_props [ lindex [ipx::get_files -of_objects $guiFiles  ] 0 ]
-get_file_props [ lindex [ipx::get_files -of_objects $bdFiles   ] 0 ]
+get_file_props [ lindex $synthFiles 0 ]
+get_file_props [ lindex $synthFiles 1 ]
+get_file_props [ lindex $simFiles   0 ]
+get_file_props [ lindex $simFiles   1 ]
+get_file_props [ lindex $guiFiles   0 ]
+get_file_props [ lindex $bdFiles    0 ]
 
 
 # ipx::get_parameter_abstractions, help reads "Get all parameter abstractions from a parameter abstraction."
@@ -278,6 +278,7 @@ get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 16]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 17]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 18]
 get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 19]
+get_port_props [lindex [ ipx::get_ports -of_objects $periph ] 20]
 
 # ipx::get_tlm_ports                            | Get all the transactional ports on a component.                   |
 # Tried: ipx::get_tlm_ports                     | Evaluated to nothing
@@ -385,7 +386,7 @@ get_bus_parameter_props [lindex $investigate 1]
 
 set investigate [ipx::get_port_maps -of_objects $busAxi]
 # --> port_map component_1 S00_AXI AWADDR port_map component_1 S00_AXI AWPROT port_map component_1 S00_AXI AWVALID port_map component_1 S00_AXI AWREADY port_map component_1 S00_AXI WDATA port_map component_1 S00_AXI WSTRB port_map component_1 S00_AXI WVALID port_map component_1 S00_AXI WREADY port_map component_1 S00_AXI BRESP port_map component_1 S00_AXI BVALID port_map component_1 S00_AXI BREADY port_map component_1 S00_AXI ARADDR port_map component_1 S00_AXI ARPROT port_map component_1 S00_AXI ARVALID port_map component_1 S00_AXI ARREADY port_map component_1 S00_AXI RDATA port_map component_1 S00_AXI RRESP port_map component_1 S00_AXI RVALID port_map component_1 S00_AXI RREADY
-proc get_port_map_props { $thing } {
+proc get_port_map_props { thing } {
     puts "| CLASS                            | [get_property CLASS                            $thing] |"
     puts "| IS_LOGICAL_VECTOR                | [get_property IS_LOGICAL_VECTOR                $thing] |"
     puts "| IS_PHYSICAL_VECTOR               | [get_property IS_PHYSICAL_VECTOR               $thing] |"
@@ -501,6 +502,7 @@ proc get_address_block_props { thing } {
     puts "| WIDTH_FORMAT                   | [get_property WIDTH_FORMAT                   $thing] |"
     puts "| WIDTH_RESOLVE_TYPE             | [get_property WIDTH_RESOLVE_TYPE             $thing] |"
 }
+get_address_block_props $investigate
 
 # ipx::get_registers                            | Get all registers from an address block.                          |
 # So cool! Maybe we can set register names? It would be lovely but... that's for another time as
@@ -544,8 +546,8 @@ proc get_address_block_parameter_props { thing } {
     puts "| VALUE_VALIDATION_RANGE_MINIMUM | [get_property VALUE_VALIDATION_RANGE_MINIMUM $thing] |"
     puts "| VALUE_VALIDATION_TYPE          | [get_property VALUE_VALIDATION_TYPE          $thing] |"
 }
-list_property [lindex $investigate 0]
-list_property [lindex $investigate 1]
+get_address_block_parameter_props [lindex $investigate 0]
+get_address_block_parameter_props [lindex $investigate 1]
 
 # It seems there's another thing called "address space", a couple commands to investigate them:
 ipx::get_address_spaces -of_objects $periph
