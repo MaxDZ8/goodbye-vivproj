@@ -210,3 +210,4 @@ set_property PHYSICAL_NAME s00_axi_aresetn [ipx::add_port_map RST $busRst]
 set_property PHYSICAL_NAME s00_axi_aclk [ipx::add_port_map CLK $busClk]
 
 generate_peripheral -driver -force $periph
+# ^ Borked!

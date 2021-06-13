@@ -94,8 +94,74 @@ Now, since we started the GUI we can write, in its TCL console,
 ipx::open_ipxact_file ./add_some_bitz_0.7/component.xml
 ```
 The "usual" Package IP wizard will appear. You probably see there's a yellow exclamation mark on file groups already. Go there and witness this beauty:
-![Two "Synthesis" file groups clashing](./exploring/generate_peripheral/clashing_synthesis_groups.png)
+![Two "Synthesis" file groups clashing](./exploring/generate_peripheral/clashing_synthesis_groups.png).
 
 That's cute enough already but as I fiddled with the button, here's how the customization panel looks like:
-![Attempting to customize a part I never wanted to deal with](./exploring/generate_peripheral/customization_of_unsupported_part.png)
+![Attempting to customize a part I never wanted to deal with](./exploring/generate_peripheral/customization_of_unsupported_part.png).
+
+What happens here is the `generate_peripheral` command will set some fields for you, no questions asked. In particular it enjoys setting the `SUPPORTED_FAMILIES` property. It also blindly adds file groups and the "glue files" [wrapper](./minimal-generation/sources_1/hdl/testAXI1_v1_3.v) and [big mux](./minimal-generation/sources_1/hdl/testAXI1_v1_3_S00_AXI.v).
+
+So, generating a peripheral by means of **the above script is wrong**. Due to the way `generate_peripheral` works we must `create_peripheral` and `generate_peripheral` right away. It seems there is some provision for not overwriting the AXI busses. OFC one would expect those things to be mentioned in UG835 but I guess the notion of documentation is akin to "enjoy repeating yourself".
+
+## The magic files
+
+All things considered, `generate_peripheral` isn't a bad starting point. We can just reuse what it gives us in terms of bus interfaces and file groups, add what we need and be done with it but there's the issue of the Customization GUI tab, which references a unsupported part *xc7a12ticsg325-1L*. From where does that setting come from?
+
+A quick search for *xc7a* in all the files produced no matches.
+
+If you had your go with Vivado and Xilinx long enough you might suspect this might be related to the `part` property which is a project-mode setting but used here. Let me elaborate: running the IP packager GUI is not something we would do regularly but it seems a good way to catch mistakes early as "debugging" the configuration. 
+
+Consider:
+
+> [AR# 54317](https://www.xilinx.com/support/answers/54317.html)
+> Even though the Vivado tool is being run in "Non-project" mode, there is a pseudo project being created and used by Vivado. 
+> ...
+> `set_property part xc7k325tfbg900-2 [current_project]`
+> In Vivado 2013.3, the IP association of IP core device and project device will be changed to require the user to issue a command to generate IP core targets in non-project mode. 
+
+Let's do:
+```
+set outputDir ./pack
+file mkdir $outputDir
+
+read_verilog -sv mdz_custom_logic.sv
+set periph [ create_peripheral -dir $outputDir {mdz} {prototyping} {add_some_bitz} {0.7} ]
+set busAxi [ add_peripheral_interface {S00_AXI} -interface_mode {slave} -axi_type {lite} $periph ]
+
+set_property display_name {add_some_bitz_ABCD} $periph
+set_property description {Help me understand the TCL commands mofo} $periph
+set_property vendor_display_name {maxdz8} $periph
+set_property company_url {http://www.companyurl.eu} $periph
+set_property supported_families { {zynq} {Pre-Production} } $periph
+```
+Now,
+```
+Vivado% current_project
+New Project
+Vivado% get_property part [current_project]
+xc7a12ticsg325-1L
+```
+
+You see, those are all things I would expect to be mentioned in some document involving non-project mode or, the reference, in mulitple places because - why not - maybe it's just me but I doubt anyone can recall those details out of a document counting 1234 pages. But be done with the ranting and just do:
+
+```
+generate_peripheral $periph
+# Example: Zynq 7020 as on Digilent's Arty Z7-20 (I'm not sure about the speed rating really but I doubt it needs to be accurate)
+set_property part {xc7z020clg400-1} [current_project]
+write_peripheral $periph
+start_gui
+```
+Now, in the Vivado TCL console,
+```
+ipx::load_ipxact ./pack/add_some_bitz_0.7/component.xml
+```
+
+Go into the *Customization GUI* tab and marvel how everything is ok. Easy, wasn't it? 🤦‍♂️
+
+
+
+
+
+
+
 
