@@ -158,10 +158,48 @@ ipx::load_ipxact ./pack/add_some_bitz_0.7/component.xml
 
 Go into the *Customization GUI* tab and marvel how everything is ok. Easy, wasn't it? 🤦‍♂️
 
+## A further look at the command fail
+Check out this:
+```
+Vivado% current_project
+ERROR: [Coretcl 2-88] No projects are currently open.
+Vivado% create_project -part xc7z020clg400-1 -in_memory
+Project
+```
+Note `Project` is different from `New Project` as noted above, yet
+```
+Vivado% set outputDir ./pack
+./pack
+Vivado% file mkdir $outputDir
+Vivado%
+Vivado% read_verilog -sv mdz_custom_logic.sv
+c:/vivnonproj/defaults/mdz_custom_logic.sv
+Vivado% set periph [ create_peripheral -dir $outputDir {mdz} {prototyping} {add_some_bitz} {0.7} ]
+component component_1
+Vivado% set busAxi [ add_peripheral_interface {S00_AXI} -interface_mode {slave} -axi_type {lite} $periph ]
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'c:/Xilinx/Vivado/2020.2/data/ip'.
+bus_interface component_1 S00_AXI
+Vivado%
+Vivado% set_property display_name {add_some_bitz_ABCD} $periph
+Vivado% set_property description {Help me understand the TCL commands mofo} $periph
+Vivado% set_property vendor_display_name {maxdz8} $periph
+Vivado% set_property company_url {http://www.companyurl.eu} $periph
+Vivado% set_property supported_families { {zynq} {Pre-Production} } $periph
+Vivado%
+Vivado%
+Vivado%
+Vivado% generate_peripheral $periph
+Vivado% write_peripheral $periph
+Vivado% start_gui
+```
+Then, loading the IP packager tabs by `./pack/add_some_bitz_0.7/component.xml` we obtain something looking identical as previous.
 
+So I have pretty much demostrated there requirement of having a *project* (most likely not in the sense of project as in `.xpr` file). 
 
+# TL;DR
 
-
-
-
-
+1. Call `generate_peripheral` ASAP, it does a lot of work for you.
+2. Call `generate_peripheral` ASAP, it doesn't care about data you already entered and might produce inconsistent results. It is much better to re-use what it gives you rather than being "complete". Or, if you really want accuracy, clean its results.
+3. After `generate_peripheral` you're supposed to call `write_peripheral` but proper creation requires a project to be created with its `part` property set. Granted, not `gen_periph`'s fault but worth noticing.
