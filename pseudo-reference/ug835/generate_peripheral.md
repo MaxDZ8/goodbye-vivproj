@@ -22,7 +22,7 @@ generate_peripheral [‑driver] [‑example_design] [‑bfm_example_design]
 ## Abstract
 Mistificate the process of assembling a bunch of files by putting them into a black box and adding arbitrary magic, except doing more than this.
 
-Just in case you're wondering no, XAPP1168 does not use this and for good reason.
+Just in case you're wondering no, XAPP1168 does not use this and for good reason (I assumed, but I later discovered more interesting things).
 
 ## An attempt at describing the thing
 Imagine for a moment your AXI device is ready to go. It comes neatly inside a directory whose structure is kinda like this:
