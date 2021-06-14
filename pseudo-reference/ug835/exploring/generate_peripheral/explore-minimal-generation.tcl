@@ -150,6 +150,17 @@ get_file_props [ lindex $simFiles   1 ]
 get_file_props [ lindex $guiFiles   0 ]
 get_file_props [ lindex $bdFiles    0 ]
 
+# 4   888    888 8888888b.  888                                                                    
+#     888    888 888  "Y88b 888                                                                    
+#     888    888 888    888 888                                                                    
+#     8888888888 888    888 888           88888b.   8888b.  888d888 8888b.  88888b.d88b.  .d8888b  
+#     888    888 888    888 888           888 "88b     "88b 888P"      "88b 888 "888 "88b 88K      
+#     888    888 888    888 888           888  888 .d888888 888    .d888888 888  888  888 "Y8888b. 
+#     888    888 888  .d88P 888           888 d88P 888  888 888    888  888 888  888  888      X88 
+#     888    888 8888888P"  88888888      88888P"  "Y888888 888    "Y888888 888  888  888  88888P' 
+#                                         888                                                      
+#                                         888                                                      
+#                                         888                                                      
 
 # ipx::get_parameter_abstractions, help reads "Get all parameter abstractions from a parameter abstraction."
 # But, if you read the help -of_objects: "Parent parameter definition objects to get parameter abstraction from".
