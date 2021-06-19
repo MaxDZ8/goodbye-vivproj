@@ -9,7 +9,7 @@ There are other methods but I suspect this to be the easiest, at least for begin
 
 Next panel is "Project name". I usually go by "main", put it in a directory where you can conveniently locate the side-project as well (it's supposed to be temporary but it'll leak into existance very often in my experience).
 
-![Setting the project name](./02_proj_name.png)
+![Setting the project name](./03_proj_name.png)
 
 Next panel is "Project type"; we all have seen this in Xilinx flow documentation so many times.
 
