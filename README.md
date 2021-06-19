@@ -42,3 +42,4 @@ Document and examine the flow of creating an AXI device by GUI so I can annotate
 1. [Creating the main project](./canon/01_main_creation/README.md)
 2. [Initiating generation of device project](./canon/02_device_creation/README.md)
 3. [Customizing the device](./canon/03_device_customization/README.md)
+4. [Data dump](./canon/04_dump) of the GUI generated component.

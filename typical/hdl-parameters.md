@@ -18,7 +18,7 @@ hdl_parameter component_1 C_S00_AXI_DATA_WIDTH hdl_parameter component_1 C_S00_A
 ```
 Note `C_S00_AXI_BASEADDR` and `C_S00_AXI_HIGHADDR` are are shown in the table even though they are not reported here. They are indeed a different kind of parameters, look for them in [Addressing and Memory](./addressing_and_memory.md).
 
-[Dumped parameter values](./dump/hdl_parameters.md).
+[Dumped parameter values](./canon/04_dump/hdl_parameters.md).
 
 
 That's not very useful as it places the parameters as "Hidden" with basic inference. Let's look at the panel opened by right clicking on the parameter and selecting "Edit parameter".

@@ -56,7 +56,7 @@ Files can be visualized in two ways:
 ![File groups panel, grouped](./03_ip_pckgr_file_groups_grouped.png)
 ![File groups panel, flattened](./03_ip_pckgr_file_groups_flat.png)
 
-[Files](./dump/props_of_files.md) are contained into [file groups](./dump/file_groups.md).
+[Files](./canon/04_dump/props_of_files.md) are contained into [file groups](./canon/04_dump/file_groups.md).
 
 # Customization Parameters panel
 
