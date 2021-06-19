@@ -31,10 +31,13 @@ The document is divided in a few sections, while all try to build this workflow,
 
 # Pseudo-reference
 
-Collects various informations about the [TCL commands](./pseudo-reference/README.md) involved. Ideally includes information about `ipx::*` commands as well as those reported by UG835 (Vivado Design Suite Tcl Command Reference Guide).
+Collects various informations about the [TCL commands](./pseudo-reference/README.md) involved and resulting TCL structure values. Ideally includes information about `ipx::*` and `ipgui::*` commands as well as those reported by UG835 (Vivado Design Suite Tcl Command Reference Guide).
 
 The goal of this section is to be a go-to for details. There's little to no effort in putting things together unless necessary to collect additional usage information. Meant to isolate a minimum amount of commands, in case you think grokking UG835 is a bit scary (1910 pages for 2020.2).
 
 # Officially making a device
 
-In this part I create and AXI device by means of [typical project mode](./typical/README.md). The goal is to investigate the results to later reproduce them using TCL only. The bottom line is: I need to find out a TCL script which output is the same as the project flow. Is it really necessary? Probably not, but for the time being I will just try to follow a reference.
+Document and examine the flow of creating an AXI device by GUI so I can annotate the TCL and later reproduce the results.
+
+1. [Creating the main project](./canon/01_main_creation/README.md)
+2. [Initiating generation of device project](./canon/02_device_creation/README.md)
