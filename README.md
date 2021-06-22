@@ -43,3 +43,13 @@ Document and examine the flow of creating an AXI device by GUI so I can annotate
 2. [Initiating generation of device project](./canon/02_device_creation/README.md)
 3. [Customizing the device](./canon/03_device_customization/README.md)
 4. [Data dump](./canon/04_dump) of the GUI generated component.
+
+# The sad TCL crunch
+
+I wish I had the foresight to track this process in more detail but the thing is I've tried many options and the focus shifted several times.
+As a start, I'd like to use TCL to have control but it gets quite verbose. Besides, nothing I tried really worked. I therefore approached the problem again
+and attempted a more incremental approach. I think a good helping material suggests what to do and what to avoid so you can save your time.
+
+I really tried to go by TCL but it seems there's some pixie dust involving `ipgui` parameters. I found `merge_project_changes` can do the work behind the scenes for us so I'll be starting from there.
+
+1. A failing [minimalistic attempt](./tcl-failing-attempts/01-minimalistic-merge-hdl) involving the bare minimum data.
