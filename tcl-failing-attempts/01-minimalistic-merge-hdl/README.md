@@ -16,7 +16,7 @@ INFO: [IP_Flow 19-4728] Bus Interface 's00_axi_aclk': Added interface parameter 
 ```
 
 Let's `write_peripheral` and `start_gui`. Then, in Vivado's graphical TCL console let's examine the results by `ipx::open_ipxact_file ./_tmp_packing/component.xml`. Four errors are reported.
-[Failing file groups panel](./bad_files.png)
+![Failing file groups panel](./bad_files.png)
 
 The errors reported are:
 - (Twice) [IP_Flow 19-407] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': Missing top model name.
@@ -24,10 +24,10 @@ The errors reported are:
 Warnings are rather nice as well:
 - (5x) [IP_Flow 19-5905] All packaged files should be located below the IP definition file (xml)
 
-Lovely. I also need to note GUI-generated device components don't use those groups but rather their "Advanced" variations (see [canon](../typical\canon\03_device_customization\17_epip_03_file_groups.png).
+Lovely. I also need to note GUI-generated device components don't use those groups but rather their "Advanced" variations (see [canon](../typical\canon\03_device_customization\17_epip_03_file_groups.png)).
 
 The situation gets even ~~better~~ worse with the ports and interfaces, the ports have not been grouped together:
-[Failing ports and interfaces panel](./bad_ports.png).
+![Failing ports and interfaces panel](./bad_ports.png).
 
 That's rather obvious given the reported error first error in particular:
 - [IP_Flow 19-1789] Bus Interface 'S00_AXI': Bus interface "S00_AXI" does not contain any port map.
@@ -36,7 +36,7 @@ That's rather obvious given the reported error first error in particular:
 All things considered, this is kinda justified since port maps put ports into bus interfaces.
 
 It turns out customization parameters are fairly borked as well. While our `MERGE_OP` and  `MERGE_LATENCY` appear to have been parsed nicely, AXI parameters got the short end of the stick.
-[Customization parameters panel](./bad_params.png)
+![Customization parameters panel](./bad_params.png)
 
 Addressing and memory seems to present an incomplete IP Memory Map; the address block is incomplete as well and no address block parameters exist.
 
