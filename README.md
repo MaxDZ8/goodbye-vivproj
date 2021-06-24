@@ -54,3 +54,4 @@ I really tried to go by TCL but it seems there's some pixie dust involving `ipgu
 
 1. A failing [minimalistic attempt](./tcl-failing-attempts/01-minimalistic-merge-hdl) involving the bare minimum data. FAIL.
 2. Improving the minimalistic attempt by [explicitly providing AXI map](./tcl-failing-attempts/02-providing-axi-map). I think there's a lot of value in this attempt, perhaps it is a good base but it's still not what I want so it still gets a FAIL.
+3. Just do as [XAPP1168 suggests](./tcl-failing-attempts/03-xapp1168) suggests. If it's enough for you just go for it. I need something more and as far as I am concerned it's one of the most spectacular FAIL.
