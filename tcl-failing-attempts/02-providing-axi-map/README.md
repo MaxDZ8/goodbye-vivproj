@@ -8,6 +8,7 @@ I have generated the AXI map commands by replicating object state from the [GUI-
 While I would rather avoid going this route (a lot of TCL which is bundled in `generate_peripheral`), I'm interested in seeing where [this](./axi_map_n_cp_files.tcl) goes. What are the difference, why did I introduce them and what do I expect?
 
 | What                        | Where               | Why                                                                                         |
+|-----------------------------|---------------------|---------------------------------------------------------------------------------------------|
 | Unique output directory     | head,<br>LN1-4      | In the minimalistic example the device was stored in a path too different from canon.<br>Give better hint to users about correspondances and goal.   |
 | Manually copied files       | beginning,<br>LN18+ | The minimalistic example didn't copy files for us producing invalid file references. |
 | Set up AXI ports and maps   | Most of the file<br>LN56-188 | The minimalistic example didn't infer ports (probably because there is a specific `merge_project_changes ports` for that, but I wanted to show the required set up here) |
