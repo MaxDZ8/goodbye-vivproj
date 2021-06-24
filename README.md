@@ -52,4 +52,5 @@ and attempted a more incremental approach. I think a good helping material sugge
 
 I really tried to go by TCL but it seems there's some pixie dust involving `ipgui` parameters. I found `merge_project_changes` can do the work behind the scenes for us so I'll be starting from there.
 
-1. A failing [minimalistic attempt](./tcl-failing-attempts/01-minimalistic-merge-hdl) involving the bare minimum data.
+1. A failing [minimalistic attempt](./tcl-failing-attempts/01-minimalistic-merge-hdl) involving the bare minimum data. FAIL.
+2. Improving the minimalistic attempt by [explicitly providing AXI map](./tcl-failing-attempts/02-providing-axi-map/README.md). I think there's a lot of value in this attempt, perhaps it is a good base but it's still not what I want so it still gets a FAIL.

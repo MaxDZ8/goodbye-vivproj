@@ -45,7 +45,7 @@ OFC the GUI doesn't exist as `generate_peripheral` was not called; in those cond
 I will spare you the eyecandy.
 
 Possible exploration paths:
-1. What happens if I explicitly provide port maps for AXI?
+1. What happens if I [explicitly provide port maps for AXI](../02-providing-axi-map/README.md)?
 2. Mish-mash with `generate_peripheral` as suggested by UG835? Did that already, fairly noisy and quite some caveats.
 
 <span style='font-size:200%'>💩</span>
