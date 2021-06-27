@@ -106,3 +106,9 @@ same line, I adjust project files just after placing them in the correct path so
 
 Feel free to compare with the previous files. This one stops here to allow to better assess the changes.
 
+# Packing up for good
+After all the exploring with the failing attempts and the progressive building in the previous sections I've come to conclusion the best (perhaps only possible?) script to pack the test IP is [this](./packing_for_good.tcl)! 
+
+You will find the "packaged" AXI into  '_tmp_packing\add_some_bitz_0.7'. And example result is [here](./example-result). [Compare with the GUI based generation](./comparing_results.md).
+
+There is nothing about repository management. Repository management is typically liquidated in a single TCL line but I am at odds with that. Repository management is a complicated matter, it spans multiple projects (in real world terms) and it's better left to other considerations and tools. At the end of the day, it's just a matter of moving the contents of the directory containing `component.xml`.
