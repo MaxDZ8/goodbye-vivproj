@@ -88,7 +88,6 @@ ipx::remove_file_group xilinx_anylanguagebehavioralsimulation $periph
 set uhdlp_merge_op  [ ipx::get_user_parameters MERGE_OP      -of_objects $periph ]
 set uhdlp_merge_lat [ ipx::get_user_parameters MERGE_LATENCY -of_objects $periph ]
 
-set_property DATA_TYPE          string     $uhdlp_merge_op
 set_property DISPLAY_NAME       {Merge Op} $uhdlp_merge_op
 set_property VALUE              {+}        $uhdlp_merge_op
 set_property VALUE_FORMAT       string     $uhdlp_merge_op
@@ -98,7 +97,6 @@ set_property VALUE_VALIDATION_TYPE list    $uhdlp_merge_op
 ipgui::add_param -name {MERGE_OP} -component $periph -display_name {Merge Operation} -show_label {true} -show_range {true} -widget {comboBox}
 set_property TOOLTIP {The two partials are merged with this} [ipgui::get_guiparamspec -name "MERGE_OP" -component $periph ]
 
-set_property DATA_TYPE          integer         $uhdlp_merge_lat;
 set_property DISPLAY_NAME       {Merge Latency} $uhdlp_merge_lat
 set_property VALUE              0               $uhdlp_merge_lat
 set_property VALUE_FORMAT       long            $uhdlp_merge_lat
