@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER add_some_bitz
+	OPTION supported_peripherals = (add_some_bitz);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = add_some_bitz;
+END DRIVER
